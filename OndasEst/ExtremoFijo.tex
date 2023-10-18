@@ -1,0 +1,34 @@
+\section{Cuerda Con Extremo Fijo}
+
+Considerando ahora el caso de una cuerda, con densidad linearl de masa
+constante, tensión constante, y en la que uno de sus extremos es fijo,
+o está en una pared, como en este caso:
+
+\begin{center}
+    \begin{tikzpicture}
+        % ~~~~~~~ coordinates ~~~~~~~~%
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (5,0);
+
+        % ~~~~~~~~ actual thing ~~~~~~~~%
+        \draw[pattern=north west lines] (5,-0.3) rectangle (5.5,0.3);
+        \draw (0,0) -- (5,0);
+        \draw[|-|] ([yshift=5mm] A) -- ([yshift=5mm] B) node[midway, fill=white] {$L_0$};
+    \end{tikzpicture}
+\end{center}
+
+Debido a esto, hay condiciones de contorno y condiciones iniciales para
+la ecuación de onda, lo que resultará en otra solución específica.
+
+\begin{gather*}
+    y(0,0) = 0\\
+    y(L_0,t) = 0\\
+    \pdv{y}{t}(0,0) = -A\,w\\
+    \pdv{y}{x}(L_0,0) = 0
+\end{gather*}
+
+Resulta que estas condiciones son válidas si la perturbación en la
+cuerda inicia justo en el instante $t=0$. Además, si la perturbación
+llega al extremo de la pared en un tiempo $t = \dfrac{L_0}{v}$, se
+produce una cantidad entera de semi-longitudes de onda a lo largo de
+la cuerda.
