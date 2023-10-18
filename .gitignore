@@ -1,0 +1,15 @@
+*
+
+!.gitignore
+
+!README.md
+
+!/**
+
+!**/*.tex
+
+**/*.bib
+
+**/build/*
+
+!**/build/*.pdf
