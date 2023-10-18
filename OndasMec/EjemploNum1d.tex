@@ -1,0 +1,42 @@
+\subsection{Ejemplo Numérico}
+
+Una cuerda con densidad lineal de masa $\mu=\qty{1}{\g \per \m}$
+y una tensión de magnitud $T_n = \qty{19}{\N}$ la cual tiene su
+cinemática descrita por 
+$y(x,t) = (\qty{3}{\cm})\sin\left(4x - 5t + \dfrac{\pi}{6}\right)$
+
+Como la función en el caso general es
+\[y(x,t) = A\sin(kx - kvt + \phi)\]
+se pueden obtener inmediatamente algunas de las variables por simple
+comparación. Así,
+
+\begin{center}
+    \begin{tabular}{ | >{$}l<{$} | l | }
+        \hline
+        A       & \qty{3}{\cm}\\
+        \hline
+        k       & \qty{4}{\radian \per \m}\\
+        \hline
+        w       & \qty{5}{\radian \per \s}\\
+        \hline
+        v       & $5/k =$ \qty{1.25}{\m \per \s}\\
+        \hline
+        \phi    & $\pi/6$\\
+        \hline
+    \end{tabular}
+\end{center}
+
+Para hallar la potencia, simplemente se reemplazan los datos en el
+resultado obtenido anteriormente:
+
+\[
+    \begin{derivation}
+            \res{P = \frac{1}{2}\mu A^2 w^2 v}\\
+        \why{ Para obtener Watts, primero se debe dejar todo en unidades básicas }\\
+            \res{ P = \frac{1}{2}(\qty{1e-3}{\kg\per\m})
+                (\qty{3e-2}{\m})^2 (\qty{5}{\radian\per\s})^2
+                (\qty{1.25}{\m\per\s}) }\\
+        \equiv\\
+            \res{ P = \qty{1.40625e-5}{\watt} }
+    \end{derivation}
+\]

@@ -1,0 +1,24 @@
+\subsection{Ejemplo Numérico}
+
+Hallar la intensidad de una onda en cierta dirección, donde tiene las
+siguientes características: densidad $\rho = \qty{0.9}{\g\per\l}$,
+amplitud de $A = 10^{-3}\,\si{\m}$ y frecuencia $f=\qty{2000}{\Hz}$,
+viajando a través del aire.
+
+Para resolver, simplemente se reemplazan los datos en la definición:
+
+\[I_n = \frac{1}{2}\rho A^2 w^2 v = \frac{1}{2}
+(\qty{0.9e-3}{\kg\per\l})(10^{-3}\,\si{\m})^2(\qty{2000}{\Hz})
+(\qty{340}{\m\per\s})
+= \qty{3.06e-4}{\watt\per\m^2}\]
+
+Las magnitudes bajo estas unidades resultan ser normalmente muy bajas,
+por lo que se define la unidad del decibel (\si{\dB}). La conversión a
+esta unidad requiere una intensidad de referencia, la cual se toma como
+el umbral inferior de sensibilidad auditiva del ser humano 
+($10^{-12}\,\si{\watt\per\m^2}$), y el cálculo es
+\[10 \log_{10}\left(\frac{I_n}{10^{-12}}\right)\]
+
+En este caso, la intensidad hallada en decibeles es:
+\[10\log_{10}\left(\frac{\num{3.06e-4}}{10^{-12}}\right) =
+\qty{84.857}{\dB}\]

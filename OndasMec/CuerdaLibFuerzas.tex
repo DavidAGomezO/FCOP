@@ -1,0 +1,61 @@
+\subsection{Análisis de fuerzas}
+
+Por segunda ley de Newton:
+
+\begin{longderivation}
+        \res{ \sum \vecc{T_{n,i}} = \Delta m\vecc{a} }\\
+    \equiv\\
+        \res{ \vecc{T_{n,1}} + \vecc{T_{n,2}} = \Delta m\vecc{a} }\\
+    \why{ Asumimos que la tensión es constante en toda la cuerda }\\
+        \res{ \vecc{T_n}\cos(\theta_1)(-\hat{x})
+            + \vecc{T_n}\sin(\theta_1)(-\hat{y})
+            + \vecc{T_n}\cos(\theta_2)(\hat{x})
+            + \vecc{T_n}\sin(\theta_2)(\hat{y})}\\
+    \why{ Las partículas no tienen movimiento longitudinal }\\
+        \res{\vecc{T_n}\sin(\theta_1)(-\hat{y})
+            + \vecc{T_n}\sin(\theta_2)(\hat{y})}\\
+    \why{ Se asume que la deformación es pequeña }\\
+        \res{ \vecc{T_n}\tan(\theta_1)(-\hat{y})
+        + \vecc{T_n}\tan(\theta_2)(\hat{y}) }\\
+    \why{ la tangente es la pendiente de la recta tangente, $\Delta m = \mu \Delta x$ }\\
+        \res{ T_n\left(
+            \frac{\odv{y}{x}(x + \Delta x) - \odv{y}{x}(x)}{\Delta x}
+            \right) = \mu a }\\
+    \To\\
+        \res{ T_n \Lim{\Delta x}{0} \left(
+            \frac{\odv{y}{x}(x + \Delta x) - \odv{y}{x}(x)}{\Delta x}
+            \right) =  \mu a}\\
+    \equiv\\
+        \res{ T_n \odv[order=2]{y}{x} = \mu a }\\
+    \equiv\\
+        \res{ T_n \odv[order=2]{y}{x} = \mu \odv[order=2]{y}{t} }\\
+    \why{ Notación }\\
+        \res{ T_n \pdv[order=2]{y}{x} = \mu \pdv[order=2]{y}{t} }\\
+    \equiv\\
+        \res{ \frac{T_n}{\mu} \pdv[order=2]{y}{x} = \pdv[order=2]{y}{t} }\\
+    \equiv\\
+        \res{ v^2 \pdv[order=2]{y}{x} = \pdv[order=2]{y}{t} }
+\end{longderivation}
+
+Primero hace falta comprobar que las unidades de la velocidad sean correctas:
+
+\[
+    \begin{derivation}
+            \res{ \left[\frac{T_n}{\mu}\right] }\\
+        =\\
+            \res{ \frac{\si{\N}}{\si{\kg\per\m}} }\\
+        =\\
+            \res{ \frac{(\si{\kg})(\si{\meter\per\second^2})}{\si{\kg\per\m}} }\\
+        =\\
+            \res{ \left(\frac{\si{\m}}{\si{\s}}\right)^2 }
+    \end{derivation}
+\]
+
+Una de las soluciones de la ecuación diferencial, es llamada
+``solución armónica'', la cual resulta en una función que se puede
+expresar como función de una sola variable:
+\[y(x, t) = y^*(x - vt) = A\sin(k(x-vt) + \phi)\]
+
+La razón de esta expresión de una variable, viene del hecho de que la
+perturbación va a viajar a una velocidad $v$, y por ende, en tras un
+tiempo $t$, la función en $XY$ se va a repetir.

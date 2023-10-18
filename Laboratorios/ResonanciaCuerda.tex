@@ -1,0 +1,195 @@
+% preamble
+
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{amsfonts} % para símbolo de los naturales
+\usepackage{logicDG}
+\usepackage{SIunitx}
+\usepackage{enumitem}
+\usepackage[spanish, es-noshorthands, es-noquoting]{babel}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70.38103pt}
+\rhead{\textit{David G., Laura R., Luisa R., María V.}}
+\lhead{\includegraphics[width = 4cm]{\logo}}
+\lfoot{Página \thepage}
+\rfoot{Resonancia en una cuerda}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hyphenpenalty=10000
+
+\newcommand{\logo}{"C:/Users/usuario/OneDrive/Documentos/U/logo-eci.png"}
+
+\newcommand{\titlename}{Resonancia \\[10pt] En Una Cuerda}%
+\renewcommand{\author}{{David Gómez, Laura Rincón, Luisa Rodríguez, María Vivas}}
+
+\definecolor{rojoEci}{RGB}{225, 70, 49}
+
+% Temporal func
+
+\NewDocumentCommand{\partiald}{ o m m }%
+    {
+        \IfNoValueTF{#1}
+        {
+            \dfrac{{\partial} #2}{{\partial} #3}
+        }{
+            \dfrac{{\partial}^{#1} #2}{\partial {#3}^{#1}}
+        }        
+    }
+
+% Enumi func
+
+\renewcommand{\labelenumi}{(\Roman{enumi})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+\doublespacing
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \textbf{\Huge{\titlename}}
+
+        \vspace{1.5cm}
+
+        \textbf{\large{\author}}
+
+        \vspace{3cm}
+
+        \includegraphics[width=0.8\textwidth]{\logo}
+        
+        \vfill
+
+        Física de Calor y Ondas
+
+        Escuela Colombiana de Ingeniería Julio Garavito
+
+        \today
+    \end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+\clearpage
+
+
+\section{Fundamentación}
+
+La fundamentación de este experimento se basa en la teoría de las ondas
+mecánicas, siendo este el caso específico de una cuerda.
+
+La obtención de la cinemática de esta onda en una cuerda, viene por la
+solución a dos situaciones. Una es la de una cuerda ``infinita'' sobre
+la que se produce una perturbación armónica. La otra es tomando el caso
+en el que esta cuerda termina en una pared, la cual reacciona con la
+fuerza que le ejerce la perturbación al llegar y se la devuelve a la
+cuerda mientras una fuerza armónica actúa en el otro extremo.
+
+El primer caso resulta en la siguiente ecuación diferencial:
+
+\[
+\begin{derivation}
+        \res{ v^2 \partiald[2]{y}{x} = \partiald[2]{y}{t}}\\
+    \why[\To]{ Solución armónica}\\
+        \res{ y(x,t) = A \sin (k(x - vt) + \phi) }\\
+    \why{ Tomando $w = kv$}\\
+        \res{ y(x,t) = A \sin (kx - (wt - \phi)) }
+\end{derivation}
+\]
+
+El segundo caso resulta en la combinación de ambas ondas,
+la que se produce por la fuerza armónica y el reflejo desde la pared:
+
+\[
+\begin{derivation}
+        \res{ y(x,t) = A \sin(kx - wt) + A \sin(kx + wt) }\\
+    \why*{}\\
+        \res{ y(x,t) = 2A \sin(kx)\cos(wt) }
+\end{derivation} 
+\]
+
+En esta ultima ecuación, se puede ver que hay valores de $kx$ para los que
+$y$ es nula en cualquier tiempo. Estas soluciones son 
+$kx_n = n\pi\, ,n \in \mathbb{N}$
+
+Por resultados más a fondo del primer caso, se podía llegar a que
+$ k = \dfrac{2\pi}{\lambda}$, por lo que $x_n = \dfrac{n \lambda}{2}$
+
+Al tener la condición $\dfrac{2 L_0}{n} = \lambda$, se puede ver que $\lambda$
+se vuelve variable con $n$, y con los resultados de la anterior ecuación
+diferencial, se puede ver que la frecuencia también, y 
+$f_n = n\dfrac{v}{2L_0}$. Estas frecuencia son las que producen armónicos.
+
+\section{Descripción}
+
+Para el experimento, se montó una cuerda con un extremo a un altavoz, el cual
+producía un movimiento vertical en forma de fuerza armónica a una frecuencia
+ingresada. Al otro extremo, la cuerda colgaba de una polea, y tenía un peso
+atado. Este peso producía una tensión, la cual se podía calcular fácilmente,
+al igual que la densidad de masa por longitud, asumiendo uniformidad.
+
+Mediante estos datos, era posible hallar la frecuencia del armónico
+fundamental y por ende todos los demás, permitiéndonos visualizar
+el efecto de resonancia en el sistema.
+
+\section{Mediciones}
+
+\begin{enumerate}
+    \item Tensión sobre la cuerda
+    
+        Como se mencionó antes, en un extremo de la cuerda, colgaba una
+        masa añadida, la cual constaba de un triángulo metálico y
+        unas arandelas. Todo esto se pesó dando una masa de \qty{0.006949}{\kilogram}.
+
+        Entonces, la tensión ejercida en la cuerda era de \qty{0.068167}{\newton}
+
+    \item Densidad de masa por longitud
+    
+    La densidad de masa por longitud no es más que la razón entre masa y longitud.
+    Ya que se asumió uniformidad de esta densidad a lo largo de toda la cuerda,
+    se tomó la longitud total de la cuerda (\qty{1.41}{\metre}) y su masa
+    (\qty{0.00007}{\kilogram}), dando como resultado una densidad de masa
+    $\mu = \qty[per-mode=symbol]{4.96454e-05}{\kilogram\per\metre}$
+
+    \item Velocidad de onda
+    
+    La velocidad es la raíz del cociente entre la tensión y la densidad
+    de masa. 
+    
+    Entonces $v = \qty[per-mode=symbol]{37.055040}{\metre\per\s}$
+
+    \item frecuencias de los armónicos
+    
+    Se sabe que el primer armónico se encuentra con $f_1$ y los demás
+    armónicos son múltiplos de este. Para el experimento, hallamos los
+    tres primeros armónicos:
+
+    \begin{enumerate}
+        \item $f_1 = \qty{13.14008521}{\hertz}$
+        \item $f_2 = \qty{26.28017042}{\hertz}$
+        \item $f_3 = \qty{39.42025563}{\hertz}$
+    \end{enumerate}
+\end{enumerate}
+
+
+\section{resultados}
+
+A la hora de usar estas frecuencias en la cuerda, se observó con bastante
+precisión el fenómeno de los armónicos, con los nodos bastante bien
+definidos en cada una de las frecuencias.
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{"C:/Users/usuario/Downloads/temp/ImagenLab.JPG"}
+\end{center}
+
+En la foto, se muestra uno de los nodos generados en la cuerdas tras aplicar
+alguna de las frecuencias armónicas.
+\end{document}

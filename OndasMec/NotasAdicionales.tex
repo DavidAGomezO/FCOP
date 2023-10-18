@@ -1,0 +1,34 @@
+\section{ Cálculos adicionales }
+
+\label{EnergP}
+\[
+\begin{derivation}
+        \res{ \prom{E_p}{T} = \prom{E_c}{T} }\\
+    \equiv\\
+        \res{ \frac{1}{T}\int_0^T \frac{k}{2}x^2 \diff[t]
+            = \frac{1}{T}\int_0^T \frac{m}{2}v^2 \diff[t] }\\
+    \equiv\\
+        \res{ \frac{k}{2}\int_0^T  (A\sin(wt + \phi))^2 \diff[t]
+            = \frac{m}{2}\int_0^T (Aw\cos(wt + \phi))^2 \diff[t]}\\
+    \equiv\\
+        \res{ \frac{k A^2}{2} \int_0^T \sin^2(wt + \phi)\diff[t]
+            = \frac{m A^2 w^2}{2} \int_0^T \cos^2(wt + \phi) \diff[t] }\\
+    \equiv\\
+        \res{ \frac{k}{2} \int_0^T 
+                \frac{1 - \cos(2(wt + \phi))}{2}\diff[t]
+            = \frac{m w^2}{2} \int_0^T 
+                \frac{1 + \cos(2(wt + \phi))}{2} \diff[t] }\\
+    \equiv\\
+        \res{ \frac{k}{8 w}\left[2(wt + \phi) + 
+                \sin(2(wt + \phi))\right]^{t = T}_{t = 0} =
+            \frac{m w}{8} \left[ 2(wt + \phi) -
+                \sin(2(wt + \phi))\right]^{t = T}_{t = 0}
+             }\\
+    \why{ La integral a lo largo de $T$ es cero
+        para esta función $\sin $}\\
+        \res{ \frac{k}{m} \left(2(wT + \phi) - 2\phi\right)
+            = w^2(2(wT + \phi) - 2\phi)}\\
+    \equiv\\
+        \res{ \textit{true} }
+\end{derivation}
+\]

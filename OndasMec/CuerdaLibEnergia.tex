@@ -1,0 +1,82 @@
+\subsection{Análisis de energía}
+
+Ya que la solución armónica produce comportamientos de este estilo,
+se hará el análisis en el intervalo para $t$ correspondiente al
+periodo temporal $T$ de la función para un $x$ fijo. De igual forma,
+en el intervalo para $x$ correspondiente al periodo espacial $\lambda$
+de la función para un $t$ fijo.
+
+Se puede ver que el comportamiento de la cuerda en un instante de
+tiempo es el mismo que tiene una partícula de la cuerda en un intervalo
+de tiempo. Sin embargo, la única relación certera que se tiene
+(numéricamente) entre ambas situaciones, son precisamente los
+intervalos mencionados anteriormente. Esto es, la energía a lo largo de
+un trozo de la cuerda de longitud $\lambda$ es la misma que tiene una
+única partícula de la cuerda a lo largo de un tiempo $T$.
+
+La energía mecánica a lo largo de un tramo de longitud $\lambda$ es:
+
+\[E_{\lambda} = E_{c,\lambda} + E_{p,\lambda}\]
+
+La igualdad entre ambos casos, se puede ver, corresponde a:
+
+\[E_{c,\lambda} = E_{c,T} \land E_{p,\lambda} = E_{p,T}\]
+
+Ya que la energía mecánica se conserva, es fácil darse cuenta que la energía
+mecánica promedio es igual a la energía mecánica en cualquier tiempo:
+
+\[\prom{E_m}{T} = E_m(t)\]
+
+De igual forma, la energía mecánica en un instante de tiempo, se define
+como la suma de la energía cinética y potencial en ese mismo instante,
+por lo que el promedio de la energía mecánica será la suma del promedio
+de la potencial y la cinética. El cálculo de todo esto resulta mucho
+más fácil una vez se muestra que la energía potencial promedio
+y la energía cinética promedio tienen el mismo valor en el periodo
+temporal $T$ (\hyperref[EnergP]{Demostración}). Debido a esta igualdad,
+se obtiene el siguiente resultado:
+\[
+    \begin{derivation}
+            \res{E_T = 2\prom{E_c}{T} = 2\prom{E_p}{T}}\\
+        \To\\
+            \res{E_\lambda = 2\prom{E_c}{\lambda} = 2\prom{E_p}{\lambda}}
+    \end{derivation}    
+\]
+
+De esta forma, si consideramos un tramo de longitud $\Delta x$ de la
+cuerda, recordando que $\mu = \frac{\Delta m}{\Delta x}$, se podría
+aproximar la energía cinética en este tramo tomando uno de los $x$
+en este:
+\[
+    \begin{derivation}
+            \res{E_{c, \Delta x_k}}\\
+        \why[=]{$\gamma = \pi - kx_k^* - \phi$}\\
+            \res{ \frac{1}{2}\mu\Delta x_k(A w \cos(wt + \gamma))^2 }
+    \end{derivation}
+\]
+
+Ahora, consideramos la suma de la energía de $n$ tramos de cuerda entre
+$x=0$ y $x=\lambda$:
+
+\[
+    \begin{derivation}
+            \res{E_{c,\lambda} \approx \sum_{i=0}^{n} 
+                    \frac{1}{2}\mu(A w \cos(wt + \gamma))^2\Delta x_i}\\
+        \why[\To]{al aumentar la cantidad de intervalos,
+                 disminuye $\Delta x$ y la suma coincide}\\
+            \res{E_{c\lambda} = \int_0^\lambda \frac{1}{2}\mu 
+                (Aw \cos(wt + \gamma))^2 \diff}\\
+        \equiv\\
+            \res{ E_{c,\lambda} = \int_0^\lambda \frac{1}{2}\mu 
+                (Aw \cos(wt + \pi - kx - \phi))^2 \diff }\\
+        \why{ $\cos(\alpha + \pi - \beta) = \cos(\beta - \pi - \alpha)$}\\
+            \res{ E_{c,\lambda} = \frac{\mu A^2 w^2}{2}
+                \int_0^\lambda \cos(kx + (\phi - wt - \pi))^2 \diff }\\
+        \equiv\\
+            \res{ E_{c,\lambda} = \frac{\mu A^2 w^2}{4}\lambda }
+    \end{derivation}
+\]
+
+Como $E_m = 2E_{c, \lambda} = 2E_{p, \lambda}$, entonces,
+$E_m = \dfrac{\mu A^2 w^2}{2}\lambda$
+\marginpar{\raggedright ¿Por qué esta igualdad de energías?}
