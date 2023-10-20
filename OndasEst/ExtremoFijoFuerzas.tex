@@ -1,0 +1,84 @@
+\subsection{Análisis de fuerzas}
+
+Por tercera ley de Newton, se tiene que, la pared, refleja la
+información de la perturbación que le llega del otro extremo de la
+cuerda. Esta reacción es, por definición, igual pero en sentido opuesto.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis line style={draw=none},
+            tick style={draw=none},
+            xtick=\empty,
+            ytick=\empty,
+            xmin=0,xmax=2,
+            ymin=-2,ymax=2,
+        ]
+        
+        \draw[thick] (2,-1) -- (1.5,-1) -- (1.5,1) -- (2,1);
+        \addplot[smooth] coordinates{(0,0) (0.5,0.8) (1,1) (1.5,0.4)};
+        \draw[ -> ] (1.5,0.4) -- (1,1.2) 
+            node [midway, yshift=5mm] {$-F\hat{x^*}$};
+        \draw[ -> , dotted] (1.5,0.4) -- (2,-0.4) 
+            node[midway, yshift=3mm, xshift=2mm] {$F\hat{x^*}$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+La onda incidente, por lo visto en la cinemática de Ondas Mecánicas, es
+de la forma
+\[y = A\sin\left(kx - wt\right)\]
+
+Por transformación de funciones, se puede ver que el efecto opuesto,
+tiene la forma
+\[y = A\sin(kx + wt)\]
+
+Esta última función tiene sentido una vez la perturbación haya vuelto
+al punto inicial. Esto es, cuando la perturbación haya recorrido $2L_0$.
+Esto, tomando en cuenta que la perturbación tiene una velocidad $v$, es
+lo mismo a que la función sea válida en $t = \dfrac{2L_0}{v}$.
+Si tomamos ahora un nuevo punto de referencia temporal, desde que la
+cuerda es afectada por la onda reflejada, $t'=\dfrac{2L_0}{v}$.
+Entonces, la cinemática en la cuerda estará dado por:
+\[
+    \begin{derivation}
+            \res{ y(x,t') = A\sin(kx - wt') + A\sin(kx+wt') }\\
+        \equiv\\
+            \res{ y(x,t') = 2A\sin(kx)\cos(wt') }
+    \end{derivation}
+\]
+
+De este resultado se puede observar que hay valores de $t'$ y $x$ para
+los que la función se iguala a $0$ y estos no dependen del otro. Es
+decir, hay puntos de la cuerda que se mantendrán estáticos sin importar
+el valor de $t'$, y hay momentos en los que todos los puntos de la
+cuerda pasan simultáneamente por $y=0$.
+
+Los valores de $x$ mencionados anteriormente, son a su vez dependientes
+de un natural $n$, por lo que se llamarán $x_n$
+
+\[
+    \begin{derivation}
+            \res{ y(x,t') = 0 }\\
+        \equiv\\
+            \res{ kx = n\pi \ ;\ n \in \mathbb{N}}\\
+        \equiv\\
+            \res{x_n = \frac{1}{k} n\pi\ ;\ n \in \mathbb{N}}\\
+        \why{Por definición de longitud de onda}\\
+            \res{ x_n = n \frac{\lambda}{2} }
+    \end{derivation}
+\]
+
+Por otra parte, una de las condiciones dadas era que, a lo largo de la
+cuerda, hubiera una cantidad entera de semi-longitudes de onda. Esto es,
+$L_0 = N\,\dfrac{\lambda}{2}$ para algún $N \in \mathbb{N}$. De esta
+igualdad, se puede expresar $\lambda$ como dependiente de $N$:
+\[\lambda_n = \frac{2L_0}{n}\]
+Ahora, de la frecuencia $f$ de esta onda, se tiene que $f\lambda = v$,
+por lo que la frecuencia también depende de un número natural:
+\[f_n = \frac{v}{\lambda_n} = \frac{n v}{2L_0}\]
+
+De esto se concluye que esta cinemática solo se produce cuando con las
+frecuencias dadas por un natural $n$.
+
+
