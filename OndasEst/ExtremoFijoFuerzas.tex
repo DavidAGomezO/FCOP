@@ -76,9 +76,24 @@ igualdad, se puede expresar $\lambda$ como dependiente de $N$:
 \[\lambda_n = \frac{2L_0}{n}\]
 Ahora, de la frecuencia $f$ de esta onda, se tiene que $f\lambda = v$,
 por lo que la frecuencia también depende de un número natural:
-\[f_n = \frac{v}{\lambda_n} = \frac{n v}{2L_0}\]
+\[f_n = \frac{v}{\lambda_n} = \frac{n\,v}{2L_0}\]
 
 De esto se concluye que esta cinemática solo se produce cuando con las
 frecuencias dadas por un natural $n$.
 
+\subsection{Ejemplo Numérico}
 
+Una cuerda con con un extremo fijo, de longitud $L_0 = \qty{2}{\m}$,
+peso total de $m = \qty{0.07}{\kg}$ y con una tensión constante
+$T_n = \qty{0.5}{\N}$. Hallar las frecuencias de resonancia como
+función de $\mathbb{N}$
+
+Como la densidad de masa lineal es constante, lo es en especial para
+toda la longitud y la masa total: 
+$\mu = \dfrac{m}{L_0} = \qty{0.035}{\kg\per\m}$
+
+Así, la velocidad de propagación de la onda es:
+$v = \sqrt{\dfrac{T_n}{\mu}} = \qty{3.7796}{\m\per\s}$
+
+Por último, se tiene que $f_n = \dfrac{n\,v}{2L_0}$. Reemplazando:
+\[f_n = 9.4491\,n\]
