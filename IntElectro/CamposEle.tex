@@ -47,10 +47,12 @@ intervalo de tiempo $T$, siendo este el periodo de la función armónica.
 \end{longderivation}
 
 Esta expresión, expresa la intensidad promedio en función de $\delta$,
-que a su vez, es expresión de $\theta$. En el diagrama del experimento,
-se puede graficar esta intensidad, y ver que hay puntos del frente de
-onda en el que se encuentra $p$, en donde nuestra persepción de la luz
-indica más o menos brillo:
+que a su vez, es expresión de $\theta$, que por la diferencia en las
+magnitudes del experimento, se puede tomar desde el punto medio de las
+rendijas. En el diagrama del experimento, se puede graficar esta
+intensidad, y ver que hay puntos del frente de onda en el que se
+encuentra $p$, en donde nuestra persepción de la luz indica más o menos
+brillo:
 
 \begin{center}
     \begin{tikzpicture}
@@ -62,6 +64,13 @@ indica más o menos brillo:
             xmin=-1,xmax=5.5,
             ymin=-3,ymax=3,
         ]
+
+        % ~~~~~~ Coordenadas ~~~~~~ %
+        \coordinate (A) at (4,0);
+        \coordinate (B) at (1,0);
+        \coordinate (C) at (4,1.5);
+
+
         \draw(0,-2) -- (0,2) node[midway, above, sloped] {frente de onda};
 
         % ~~~~ Rendijas ~~~~%
@@ -88,10 +97,12 @@ indica más o menos brillo:
         \draw[ -> ] (0.8,-0.6) -- (0.8,-0.8);
         \draw[ -> ] (0.8,-1.2) -- (0.8,-1);
         \draw[ -> ] (0.8,-0.9) to [bend right] (0.5, -1.5) node[below] {$a$};
-
+        \draw[dashdotted, red] (1,0) -- (4,1.5);
         \draw[|-|] (1,-2.1) -- (4,-2.1) node[midway, fill=white] {$L_0$};
-
         \draw[dotted] (4,-2) -- (4,2);
+        \draw[red] (1,0) -- (4.5,0) node[right] {$y=0$};
+        \draw[dashdotted] (3.2,1) -- (3.2,2.2) node[left] {$I_{n,\text{máx}}$};
+        \pic[draw, "$\theta$", angle eccentricity=1.5] {angle= A--B--C};
 
         \addplot[
             domain=-2:2,
@@ -104,8 +115,6 @@ indica más o menos brillo:
             {0.4*cos(6*x + pi) + 3.6},{x}
         );
 
-        \draw[red] (1,0) -- (4.5,0) node[right] {$y=0$};
-        \draw[dashdotted] (3.2,1) -- (3.2,2.2) node[left] {$I_{n,\text{máx}}$};
         \end{axis}
     \end{tikzpicture}
 \end{center}

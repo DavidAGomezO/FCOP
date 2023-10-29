@@ -1,0 +1,61 @@
+\section{Ejemplo Numérico}
+
+Un caso específico del experimento donde los rayos de luz se
+caracteríza por una longitud de onda $\lambda = \qty{600}{\nano\m}$.
+La separación entre las rendijas es $d = \qty{60}{\micro\m}$ y el
+patrón se observa a una distancia $L_0 = \qty{1.7}{\m}$.
+
+Hallar los dos primeros máximos y mínimos de la intensidad después de
+la franja central. Hallar la intensidad promedio máxima dado 
+$E_A = \qty{1}{\micro\V\per\m}$.
+
+Por la aproximación mencionada anteriormente, al ser $\theta$ un ángulo
+considerado pequeño:
+\begin{enumerate}
+    \item CIC
+    \[
+        \begin{derivation}
+                \res{ \sin(\theta) \approx \tan(\theta) }\\
+            \To\\
+                \res{ d\,\tan(\theta) = n\,\lambda }\\
+            \equiv\\
+                \res{ d\,\frac{y_{n,\max}}{L_0} = n\,\lambda }\\
+            \why[\To]{Los dos primeros máximos corresponden a $n=1,2$}\\
+                \res{
+                    y_{1,\max} = \frac{\lambda\,L_0}{d}\ 
+                    \land\ 
+                    y_{2,\max} = \frac{2\,\lambda\,L_0}{d}
+                }\\
+            \equiv\\
+                \res{
+                    y_{1,\max} = \qty{1.7e-2}{\m}\ 
+                    \land\ 
+                    y_{2,\max} = \qty{3.4e-2}{\m}
+                }
+        \end{derivation}
+    \]
+    \item CID
+    Tomando la misma aproximación que antes:
+    
+    \begin{longderivation}
+            \res{ d\,\tan(\theta) = \left(n + \frac{1}{2}\right)\lambda }\\
+        \equiv\\
+            \res{ d\,\frac{y_{n,\min}}{L_0} = \left(n + \frac{1}{2}\right)\lambda }\\
+        \why[\To]{Los dos primeros mínimos corresponden a $n=0,1$}\\
+            \res{
+                y_{0,\min} = \qty{8.5e-3}{\m}\ 
+                \land\ 
+                y_{1,\min} = \qty{2.55e-2}{\m}
+            }
+    \end{longderivation}
+    \item Intensidad promedio máxima
+    Para hallar esto, hay que recordar que la intensidad promedio tiene
+    la siguiente expresión:
+    \[\left\langle S \right\rangle_T =
+    \frac{2E_A^2\cos^2\left(\dfrac{k\delta}{2}\right)}{c\,\mu_0}
+    = I_{n,\max}\cos^2\left(\dfrac{k\delta}{2}\right)\]
+
+    De esto, la intensidad máxima para este caso en partícular es:
+    \[I_{n,\max} = \qty{5.3052e-14}{\W\per\m^2}\]
+\end{enumerate}
+
