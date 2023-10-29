@@ -1,0 +1,91 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage[a]{esvect}
+\usepackage[T1]{fontenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{logicDG, calcDG}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+\sisetup{per-mode=symbol}
+\usepackage[spanish, es-noshorthands, es-noquoting]{babel}
+\usepackage{pgfplots}
+\pgfplotsset{compat = newest}
+\usetikzlibrary{angles, quotes, patterns}
+\usepackage{marginnote}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{70.38103pt}
+
+% ~~~~~~ Autor/es ~~~~~~ %
+\rhead{\textit{David G.}}
+% ~~~~~~ Esquina ~~~~~~ %
+
+\lhead{\includegraphics[width = 4cm]{\logo}}
+\lfoot{Página \thepage}
+
+% ~~~~~~ Título ~~~~~~ %
+\rfoot{Interferencia Electromagnética}
+% ~~~~~~ Esquina ~~~~~~ %
+\renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hyphenpenalty=10000
+
+\newcommand{\logo}{"C:/Users/usuario/OneDrive/Documentos/U/logo-eci.png"}
+
+% ~~~~~~ Autor/es y Titulo ~~~~~~ %
+\newcommand{\titlename}{Interferencia Electromagnética\\[10pt]
+Experimento de Young}
+\renewcommand{\author}{{David Gómez}}
+% ~~~~~~ Autor/es y Titulo ~~~~~~ %
+
+\definecolor{rojoEci}{RGB}{225, 70, 49}
+
+
+
+% Enumi func
+
+\renewcommand{\labelenumi}{(\Roman{enumi})}
+\renewcommand{\labelenumii}{(\roman{enumii})}
+
+\doublespacing
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \vspace{1cm}
+
+        \textbf{\Huge{\titlename}}
+
+        \vspace{1.5cm}
+
+        \textbf{\large{\author}}
+
+        \vspace{3cm}
+
+        \includegraphics[width=0.8\textwidth]{\logo}
+        
+        \vfill
+
+        Física de Calor y Ondas
+
+        Escuela Colombiana de Ingeniería Julio Garavito
+
+        \today
+    \end{center}
+\end{titlepage}
+
+\clearpage
+\tableofcontents
+
+\include{IntElectro/Intro}
+
+\include{IntElectro/ExperimentoYoung}
+
+\include{IntElectro/CamposEle}
+
+\end{document}

@@ -1,0 +1,111 @@
+\section{Campos Eléctricos y Magnéticos}
+
+La energía que transporta una onda electromagnética, es dada por el
+vector de Poynting $\vv{S}$, y su magnitud es la intensidad.
+
+\[\vv{S} = \frac{\vv{E} \times \vv{B}}{\mu_0}\ ,\ 
+\mu_0 = 4\pi\times 10^{-7}\si{\tesla\m\per\A}\]
+
+Las ondas electromagnéticas tienen las siguientes propiedades:
+
+\begin{enumerate}
+    \item $\vv{E} \perp \vv{B}$ : el campo eléctrico es perpendicular
+    al magnético.
+    \item $\size{\vv{E}} = c\,\size{\vv{B}}\ ,\ 
+    c: \text{velocidad de la luz}$ : Las magnitudes de ambos campos son
+    proporcionales.
+\end{enumerate}
+
+Sea $\hat{\perp}$ la dirección perpendicular al plano formado por
+$\vv{E}$ , $\vv{B}$. Considerando las propiedades mencionadas:
+
+\[\vv{S} = \frac{\size{\vv{E}}^2}{c\,\mu_0}\hat{\perp} =
+\frac{c\size{\vv{B}}^2}{\mu_0}\hat{\perp}\]
+
+Como $\Psi(p) = E(p) = A(\delta)\sin(wt - \gamma)$, entonces, en este
+caso:
+\[\size{\vv{S}} = S = \frac{(A(\delta))^2\sin^2(wt-\gamma)}{c\,\mu_0}\]
+
+Es de interés conocer el valor promedio de esta magnitud en el
+intervalo de tiempo $T$, siendo este el periodo de la función armónica.
+
+\begin{longderivation}
+        \res{ \left\langle S \right\rangle_T }\\
+    =\\
+        \res{ \frac{1}{T}\Int{0,T} S(t) \diff{t} }\\
+    =\\
+        \res{ \frac{1}{T}\Int{0,T}
+                \frac{(A(\delta))^2\sin^2(wt-\gamma)}{c\,\mu_0} }\\
+    \why[=]{$T$ es el periodo de la función $\sin$}\\
+        \res{ \frac{1}{T}\frac{(A(\delta))^2\,T}{2c\mu_0} }\\
+    =\\
+        \res{ \frac{4 E_A^2 \cos^2\left(\dfrac{k\delta}{2}\right)}{2c\mu_0} }\\
+    =\\
+        \res{ \frac{2E_A^2 \cos^2\left(\dfrac{k\delta}{2}\right)}{c\mu_0} }\\
+    \why[=]{$I_{n,\text{máx}} = 2E_A^2/c\mu_0$}\\
+        \res{ I_{n,\text{máx}}\cos^2\left(\dfrac{k\delta}{2}\right) } 
+\end{longderivation}
+
+Esta expresión, expresa la intensidad promedio en función de $\delta$,
+que a su vez, es expresión de $\theta$. En el diagrama del experimento,
+se puede graficar esta intensidad, y ver que hay puntos del frente de
+onda en el que se encuentra $p$, en donde nuestra persepción de la luz
+indica más o menos brillo:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis line style={draw=none},
+            tick style={draw=none},
+            xtick=\empty,
+            ytick=\empty,
+            xmin=-1,xmax=5.5,
+            ymin=-3,ymax=3,
+        ]
+        \draw(0,-2) -- (0,2) node[midway, above, sloped] {frente de onda};
+
+        % ~~~~ Rendijas ~~~~%
+        \draw[color=blue!50!black,draw opacity=2, -| ] (1,2) -- (1,1);
+        \draw[color=blue!50!black,draw opacity=2, |-| ] (1,0.8) -- (1,-0.8);
+        \draw[color=blue!50!black,draw opacity=2, -| ] (1,-2) -- (1,-1);
+
+
+        % ~~~~ Rayos y emisores ~~~~%
+        \draw[color=red!50!black,dashed, ->] (0,0.9) -- (1,0.9) --
+            node[midway, yshift=6mm, xshift=-10mm, sloped] 
+            {$\Psi_1$} (5,1.7) node[right] {$x$};
+        \draw[color=yellow!40!black,dashed, ->] (0,-0.9) -- (1,-0.9) --
+            node[midway, yshift=-6mm, xshift=-10mm, sloped]
+            {$\Psi_2$} (5,2.3) 
+            node[right,yshift=2mm] {$x'$};
+        \filldraw (4,1.5) circle (0.3mm) node [below] {$p$};
+        
+        % ~~~~ Datos ~~~~ %
+        \draw[|-|] (0.3,0.9) -- (0.3,-0.9) node[midway, fill=white]{$d$};
+        \draw[ -> ] (0.8,0.6) -- (0.8,0.8);
+        \draw[ -> ] (0.8,1.2) -- (0.8,1);
+        \draw[ -> ] (0.8,0.9) to [bend left] (0.5, 1.5) node[above] {$a$};
+        \draw[ -> ] (0.8,-0.6) -- (0.8,-0.8);
+        \draw[ -> ] (0.8,-1.2) -- (0.8,-1);
+        \draw[ -> ] (0.8,-0.9) to [bend right] (0.5, -1.5) node[below] {$a$};
+
+        \draw[|-|] (1,-2.1) -- (4,-2.1) node[midway, fill=white] {$L_0$};
+
+        \draw[dotted] (4,-2) -- (4,2);
+
+        \addplot[
+            domain=-2:2,
+            samples=100,
+            trig format plots=rad,
+            color=green!30!black,
+            thick
+        ]
+        (
+            {0.4*cos(6*x + pi) + 3.6},{x}
+        );
+
+        \draw[red] (1,0) -- (4.5,0) node[right] {$y=0$};
+        \draw[dashdotted] (3.2,1) -- (3.2,2.2) node[left] {$I_{n,\text{máx}}$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
