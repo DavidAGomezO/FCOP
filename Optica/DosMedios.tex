@@ -1,0 +1,87 @@
+\section{Óptica en dos medios}
+
+Considerando una frontera con forma de arco, un objeto fuera de este
+medio (el lente), y un observador que se encuentra dentro del medio del
+lente. Para analizar esta situación consideramos lo siguiente:
+\begin{itemize}
+    \item El eje óptico:
+    Es una traza que divide, en este caso al lente, por la mitad,desde
+    el punto de vista que se analiza.
+    \item Los índices de refracción del medio $1$ Y $2$:
+    En este caso, tomamos $n_1 < n_2$.
+    \item La ley de Snell:
+    Es un resultado obtenido de considerar el cambio de dirección de
+    un rayo de luz al cambiar de medio, este resulta en la igualdad
+    \[n_1 \sin(\phi_1) = n_2 \sin(\phi_2)\]
+    Donde los $n$ son índices de refracción y los ángulos son medidos
+    desde la recta perpendicular al punto en el que se cambia de medio.
+\end{itemize}
+
+Para continuar con el análisis, consideramos dos rayos provenientes de
+un objeto $s$ al otro lado del lente.
+
+\input{Optica/Grafica1.tex}
+
+El rayo amarillo (1) y el dado por el eje óptico (2) serán los dos rayos a
+considerar para el análisis. Para hacer uso de la ley de Snell, se toma
+la tangente al lente en donde el rayo 1 incide al medio y su respectiva
+perpendicular.
+\[n_1 \sin(\theta_i) = n_2 \sin(\theta_f)\]
+
+Bajo la suposición de que todos los ángulos mostrados son pequeños, se
+hacen las siguientes aproximaciones:
+\begin{align*}
+    \theta_i,\theta_f,\alpha, \beta, \gamma &\approx 0\\
+    \sin(\theta_i,\theta_f,\alpha, \beta, \gamma) 
+        &\approx \theta_i,\theta_f,\alpha, \beta, \gamma\\
+    \tan(\theta_i,\theta_f,\alpha, \beta, \gamma)
+        &\approx \theta_i,\theta_f,\alpha, \beta, \gamma
+\end{align*}
+
+Ya con estas aproximacines, se procede con el análisis:
+
+\begin{longderivation}
+        \res{
+            \begin{sisEq}
+                \alpha + \beta + o      &= \pi\\
+                \theta_i + o            &= \pi\\
+                \gamma + C + \theta_f   &= \pi\\
+                \beta + C               &= \pi
+            \end{sisEq}
+        }\\
+    \To\\
+        \res{
+            \begin{sisEq}
+                \alpha + \beta      &= \theta_i\\
+                \gamma + \theta_f   &= \beta
+            \end{sisEq}
+        }\\
+    \why[\To]{Ley de Snell y aproximaciones: $n_1\theta_i = n_2\theta_f$}\\
+        \res{ \gamma + \frac{n_1}{n_2}\theta_i = \beta}\\
+    \To\\
+        \res{ \theta_i = \frac{n_2}{n_1}(\beta - \gamma) = \alpha + \beta}\\
+    \why[\To]{Aproximaciones}\\ 
+        \res{ \frac{n_2}{n_1}\left(\frac{h}{R} - \frac{h}{q}\right)
+            = \frac{h}{p} + \frac{h}{R} }\\
+    \equiv\\
+        \res{ \frac{n_2 - n_1}{R} = \frac{n_1}{p} + \frac{n_2}{q} }
+\end{longderivation}
+
+Ahora, se introducirá una convención para este tipo de situaciones:
+dado un objeto o emisor de luz, un cambio de medio y un receptor
+(observador). Es  llamado ``delante'' el espacio entre el objeto y el
+cambio de medio, y ``detrás'' el espacio entre el cambio de medio y el
+receptor. A su vez, se asignan signos a las distancias que se denotaron
+como $p$ y $q$ según esta conveniencia:
+
+\begin{center}
+    \begin{tabular}{ | c | c | c | } 
+        \hline
+        Variable    & $+$            & $-$\\ 
+        \hline
+        $p$         & delante        & detrás \\ 
+        \hline
+        $R$         & centro detrás  & centro delante\\ 
+        \hline
+      \end{tabular}
+\end{center}

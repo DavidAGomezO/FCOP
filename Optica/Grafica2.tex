@@ -1,0 +1,129 @@
+\begin{center}
+    \begin{tikzpicture}[scale=2]
+        \begin{axis}[
+            xmin=-3,
+            xmax=3,
+            axis equal,
+            hide axis,
+        ]
+            \addplot[
+                domain=0.7*pi:1.3*pi,
+                trig format plots=rad,
+                line width=0.01mm,
+                yellow!60!black,
+            ](
+                {cos(x)},
+                {sin(x)}
+            );
+            \addplot[
+                domain=-0.3*pi:0.3*pi,
+                trig format plots=rad,
+                line width=0.01mm,
+                yellow!60!black,
+            ](
+                {cos(x)-1.17557050},
+                {sin(x)}
+            );
+            \addplot[
+                domain=-1:-0.75,
+                line width = 0.005mm,
+            ]{
+                1.7320581*(x+0.866025404) + 0.5
+            };
+            \addplot[
+                domain=-1.5:0,
+                dashed,
+                line width=0.01mm,
+                opacity=0.5,
+            ]{
+                -0.577350269*(x+0.866025404) + 0.5
+            };
+            \draw[line width=0.1mm, dotted] (-1,0.2) -- (-1,-2);
+            \draw[line width=0.1mm, dotted] (-0.17557050,0.2) -- (-0.17557050,-2);
+            \draw[|-|,red!30!black]  (-1,-2) -- (-0.17557050,-2)
+            node[midway, fill=white]
+            {\resizebox{1.5mm}{1.5mm}{$\varepsilon$}};
+            \draw[|-|]  (-0.17557050,-1.5) -- (1.18113560,-1.5)
+            node[midway, fill=white]
+            {\resizebox{3mm}{1.5mm}{$p_2$}};
+            \draw[ ->, blue!30!black] (-0.224513988,-0.309016994) -- (-1.17557050,0)
+            node[yshift=-2mm] {\resizebox{1.8mm}{1.2mm}{$R_2$}};
+
+            % ~~~~ Coordenadas ~~~~ %
+            \coordinate (qi1) at (-1.3,0.750555350);
+            \coordinate (qi2) at (-0.866025,0.5);
+            \coordinate (qi3) at (-2,0);
+
+            \coordinate (qf1) at (0,0);
+            \coordinate (qf2) at (-0.866025,0.5);
+            \coordinate (qf3) at (2,-0.2);
+
+            \coordinate (a1) at (-1,0);
+            \coordinate (a2) at (-2,0);
+            \coordinate (a3) at (-0.866025,0.5);
+
+            \coordinate (o1) at (-2,0);
+            \coordinate (o2) at (-0.866025,0.5);
+            \coordinate (o3) at (0,0);
+
+            \coordinate (g2) at (1.18113560,0);
+
+
+            \draw[orange] (-2,0) -- (-0.866025,0.5);
+            \draw[orange] (-0.866025,0.5) -- (2,-0.2);
+            \draw[loosely dashed] (-2.1,0) -- (2.1,0) node [above,scale=0.5] {Eje Óptico};
+            \draw[red!30!black,|-|, line width=0.1mm] (-0.7,0.5) -- (-0.7,0);  
+
+            % ~~~~~ Ángulos ~~~~ %
+            \pic[
+                draw,
+                "\resizebox{2mm}{2mm}{$\theta_i$}",
+                angle eccentricity=1.5]
+                {angle = qi1--qi2--qi3};
+            \pic[
+                draw,
+                "\resizebox{1.5mm}{1.2mm}{$\theta_f$}",
+                angle eccentricity=1.5] {angle = qf1--qf2--qf3};
+            \filldraw (0,0) circle (0.1mm) node[below] {\resizebox{2mm}{2mm}{$C$}};
+            \draw[ ->,
+            red!30!black] (0,0) -- (-0.866025,-0.5) node[xshift=2.5mm]
+            {\resizebox{2.5mm}{1.5mm}{$R_1$}};
+            \pic[
+                draw,
+                "\resizebox{1.5mm}{1.2mm}{$\alpha$}",
+                angle eccentricity=1.5] {angle = a1--a2--a3};
+            \pic[
+                draw,
+                "\resizebox{1.2mm}{1.2mm}{$o$}",
+                angle eccentricity=1.7, angle radius = 1.5mm] {angle = o1--o2--o3};
+            \pic[
+                draw,
+                angle radius = 1.3mm] {angle = qf3--qf1--qf2};
+            \pic[
+                draw,
+                "\resizebox{1.5mm}{1.5mm}{$\beta$}",
+                angle eccentricity=1.5,
+                angle radius=4.3mm] {angle = a3--qf1--a1};
+            \pic[
+                draw,
+                "\resizebox{1.2mm}{1.2mm}{$\gamma$}",
+                angle eccentricity=1.2,
+                angle radius=8.2mm] {angle = qf2--g2--qf1};
+
+            \draw[|-|] (-2,-0.6) -- (-0.992,-0.6) node[midway,fill=white]
+            {\resizebox{3mm}{1.5mm}{$p_1$}};
+            \filldraw (1.18113560,0) circle (0.2mm) node[above]
+            {\resizebox{1.5mm}{1.5mm}{$I$}};
+            \draw[|-|] (-1.005,-0.7) -- (1.18113560,-0.7) node[midway, fill=white]
+            {\resizebox{3mm}{1.5mm}{$q_1$}};
+
+            \draw (-1,1) node {\resizebox{3.5mm}{1.5mm}{$n_1$}};
+            \draw (0,1) node[yellow!60!black] {\resizebox{3.5mm}{1.5mm}{$n_2$}};
+            \draw[ ->,red!30!black] (-0.7,0.25) to[bend right] (-0.5,0.8) node[yshift=1mm]
+            {\resizebox{1.5mm}{1.75mm}{$h$}};
+            \filldraw[orange] (-2,0) circle (0.5mm) node[below]
+            {\resizebox{1.5mm}{1.5mm}{$s$}};
+            
+        \end{axis}
+    \end{tikzpicture}
+\end{center}

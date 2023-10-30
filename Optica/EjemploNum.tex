@@ -1,0 +1,39 @@
+\section{Ejemplo Numérico}
+
+Considerando ahora un objeto puesto en otro punto del espacio, no
+necesariamente atravesado por el eje óptico, la estrategia es tomar dos
+rayos: uno debe ser paralelo al eje óptico, y el seguno debe pasar por
+el centro del lente. Considerando el caso de un sistema con dos lentes,
+donde uno (1) es convergente (los rayos se dirigen al eje óptico), y el
+otro (2) es divergente (los rayos se alejan del eje óptico); puestos en ese
+orden.
+
+Sean $p_c = \qty{4}{\cm}$ la distancia del objeto al lente (1),
+la distancia focal de (1) $f_c=\qty{1.5}{\cm}$, la distancia focal de
+(2) $f_d = \qty{-1.5}{\cm}$, y la separación entre los lentes
+$s = \qty{5}{\cm}$.
+
+Aproximando el índice de refracción del aire al del vacío, $n_1 = 1$.
+
+Lo primero es determinar la proyección del objeto tras el lente (1).
+La distancia a la que se proyecta será llamada $q_c$.
+
+\begin{longderivation}
+        \res{\frac{1}{p_c} + \frac{1}{q_c} = \frac{1}{f}}\\
+    \equiv\\
+        \res{ q_c = \frac{f_c\,p_c}{p_c - f_c} }\\
+    \equiv\\
+        \res{ q_c = \qty{2.4}{\cm} }
+\end{longderivation}
+
+La distancia de la proyección de (1) a (2) será llamada $p_d$. Por lo
+descrito anteriormente en el enunciado $p_d = s - q_c = \qty{2.6}{\cm}$.
+
+Análogamente, $q_d$ será la distancia a la que la imagen se proyecta desde (2):
+\begin{longderivation}
+        \res{\frac{1}{p_d} + \frac{1}{q_d} = \frac{1}{f_d}}\\
+    \equiv\\
+        \res{ q_d = \frac{f_d\,p_d}{p_d - f_d} }\\
+    \equiv\\
+        \res{ q_d = \qty{-0.95122}{\cm} }
+\end{longderivation}

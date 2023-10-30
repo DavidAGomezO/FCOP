@@ -10,7 +10,6 @@
 \usepackage{logicDG, calcDG}
 \usepackage{amsfonts}
 \usepackage{siunitx}
-\usepackage{tabularx}
 \sisetup{per-mode=symbol}
 \usepackage[spanish, es-noshorthands, es-noquoting]{babel}
 \usepackage{pgfplots}
@@ -30,7 +29,7 @@
 \lfoot{Página \thepage}
 
 % ~~~~~~ Título ~~~~~~ %
-\rfoot{Interferencia Electromagnética}
+\rfoot{Intro. Óptica}
 % ~~~~~~ Esquina ~~~~~~ %
 \renewcommand{\headrule}{\hbox to \headwidth{\color{rojoEci}\leaders\hrule height \headrulewidth\hfill}}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -40,8 +39,7 @@
 \newcommand{\logo}{"C:/Users/usuario/OneDrive/Documentos/U/logo-eci.png"}
 
 % ~~~~~~ Autor/es y Titulo ~~~~~~ %
-\newcommand{\titlename}{Interferencia Electromagnética\\[10pt]
-Experimento de Young}
+\newcommand{\titlename}{Introducción a la Óptica}
 \renewcommand{\author}{{David Gómez}}
 % ~~~~~~ Autor/es y Titulo ~~~~~~ %
 
@@ -83,11 +81,9 @@ Experimento de Young}
 \clearpage
 \tableofcontents
 
-\include{IntElectro/Intro}
+\include{Optica/DosMedios}
 
-\include{IntElectro/ExperimentoYoung}
+\include{Optica/LenteGrueso}
 
-\include{IntElectro/CamposEle}
-
-\include{IntElectro/EjemploNum}
+\include{Optica/EjemploNum}
 \end{document}

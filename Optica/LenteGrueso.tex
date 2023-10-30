@@ -1,0 +1,54 @@
+\section{Lente Grueso}
+
+\input{Optica/Grafica2.tex}
+
+En este caso, el medio dos, tiene un final antes de llegar al receptor.
+Esto no es otra cosa que la combinación de dos situaciones iguales a
+la vista anteriormente. La luz pasa por el primer cambio de medio y
+tiene una respectiva proyección, esta viene a ser el objeto que tomará
+el otro lado del lente, sin embargo, hay que recordar que la luz
+sigue proviniendo de la posición real del objeto.
+
+Esto es, el delante y detrás de la primera (i) superficie, se mantiene
+igual que antes. En el caso de la superficie dos (ii), el delante está
+en el detrás de (i), y el detrás está entre (ii) y el receptor.
+
+Ya que este problema no es más que tomar los resultados del anterior y
+añadir el mismo proceso con el lente (ii). Contamos con, precisamente,
+las ecuaciones de la situación anterior. Nótese que este resultado,
+con las conveniencias del delante y detrás, se pueden aplicar con el
+lente (ii).
+
+\begin{longderivation}
+        \res{
+            \begin{sisEq}
+                \frac{n_2 - n_1}{R_1}   &= \frac{n_1}{p_1} + \frac{n_2}{q_1}\\[10pt]
+                \frac{n_1 - n_2}{R_2}   &= \frac{n_2}{p_2} + \frac{n_1}{q_2}\\
+                        p_2             &=      \varepsilon - q_1
+            \end{sisEq}
+        }\\
+    \To\\
+        \res{
+            \begin{sisEq}
+                \frac{n_2 - n_1}{R_1}   &= \frac{n_1}{p_1} + \frac{n_2}{q_1}\\[10pt]
+                \frac{n_1 - n_2}{R_2}   &= \frac{n_2}{\varepsilon - q_1} + \frac{n_1}{q_2}
+            \end{sisEq}
+        }\\
+    \equiv\\
+            \res{
+                \begin{sisEq}
+                    \frac{n_2 - n_1}{R_1}           &= \frac{n_1}{p_1} + \frac{n_2}{q_1}\\[10pt]
+                    \frac{n_2}{q_1 - \varepsilon}   &= \frac{n_1}{q_2} - \frac{n_1 - n_2}{R_2}
+                \end{sisEq}
+            }\\
+    \why[\To]{ Considerando el ancho del lente como pequeño: $p_2 \approx -q1$}\\
+            \res{\frac{n_2 - n_1}{R_1} = 
+                \frac{n_1}{p_1} + \frac{n_1}{q_2} - \frac{n_1 - n_2}{R_2} }\\
+    \equiv\\
+            \res{ (n_2 - n_1)\left(\frac{1}{R_1} - \frac{1}{R_2}\right) 
+                = \frac{n_1}{p_1} + \frac{n_1}{q_2}}
+\end{longderivation}
+
+Esta última igualdad es llamada ecuacuión del fabricante de lentes, y
+resulta ser igual al inverso de la distancia focal de la lente delgada $f$.
+Esta se mide desde el lente.
