@@ -1,0 +1,61 @@
+\section{Ejemplo con una pecera}
+
+% Grafica 3
+
+En este caso, el problema es de dos medios únicamente. Ya que se trata
+de un "lente" plano, se puede tomar como un lente esférico cuyo radio
+tiende a infinito. Considerando lo obtenido para dos medios:
+
+\[
+    \begin{derivation}
+            \res{ \frac{n_1 - n_2}{R} = \frac{n_2}{p} + \frac{n_1}{q} }\\
+        \why{ $R \to \infty$}\\
+            \res{ -\frac{n_2}{p} = \frac{n_1}{q} }\\
+        \equiv\\
+            \res{ -\frac{n_1}{n_2}p = q }
+    \end{derivation}
+\]
+
+Ahora, si la distancia del pez al borde de la pecera varía con el
+tiempo siguiendo una función $p(t)$, se puede hallar la distancia de la
+proyección en ese mismo instante de tiempo mediante una función $q(t)$.
+Estas dos funciones se relacionan de la misma forma que las distancias
+fijas $p$ y $q$. Así, se puede determinar la velocidad con la que el
+pez se distancia del borde de la pecera percibida por el observador.
+
+\[
+    \begin{derivation}
+            \res{ -\frac{n_1}{n_2}p(t) = q(t) }\\
+        \To\\
+            \res{ -\frac{n_1}{n_2}p'(t) = q'(t) }
+    \end{derivation}
+\]
+
+Un ejemplo numérico puede ser: la distancia del pez a la pecera
+inicialmente es \qty{10}{\cm}. Luego, la distancia varía siguiendo la
+función $p(t) = \sin^2(t) + 10e^{-t}$. Hallar la distancia y velocidad
+percibidaa inicialmente y la distancia percibida tras \qty{10}{\s}.
+
+\begin{enumerate}
+    \item En el momento inicial:
+    Reemplazando en el resultado obtenido:
+    \[q_0 = -\frac{1}{1.33}(\qty{10}{\cm}) = \qty{-7.52}{\cm}\]
+    El resultado tiene sentido, pues la proyección se produce dentro
+    del agua. Por la convención de signos, $q$ debe ser negativo.
+    \item En $t = \qty{10}{\s}$
+    \[
+        \begin{derivation}
+            \res{ -\frac{n_1}{n_2}p(t) = q(t) }\\
+        \To\\
+            \res{
+                q(10) = \qty{-2.23e-1}{\cm}\\
+                &\land\\
+                &q'(t) = -\dfrac{n_1}{n_2}(2\,\sin(t)\cos(t) - 10e^{-t})
+            }\\
+        \To\\
+            \res{
+                q(10) = \qty{-2.23e-1}{\cm} \land q'(10) = \qty{-0.6861}{\cm\per\s}
+            }
+        \end{derivation}  
+    \]
+\end{enumerate}
