@@ -1,0 +1,68 @@
+\section{Escalas de Temperatura}
+
+Las escalas de temperatura no son más que las diferentes unidades de
+medida para la \\temperatura. Para ejemplificar la relación entre las más
+conocidas se tomarán dos puntos: la trancisión de fase de fusión y
+ebullición del agua.
+\RenewDocumentCommand{\degree}{O{C}}{{}^{\circ} \text{#1}}
+\begin{center}
+    \begin{tabular}{c|c|c|c}
+        Trancisión de fase  & Celsius ($\degree$)   & 
+        Farenheit ($\degree[F]$) & Kelvin ($K$)\\
+        \hline
+        Fusión              & 0                     & 32    & 273.15\\
+        Ebullición          & 100                   & 212   & 373.15
+    \end{tabular}
+\end{center}
+
+Se puede ver que tanto la escala Celsius como la Kelvin tienen $100$
+unidades entre las dos transiciones de fase, mientras que la Farenheit
+tiene $180$. Como estas escalas mantienen una relación lineal con la
+energía de tipo calor, la conversión se vuelve un problema simple de
+proporcionalidad:
+
+\begin{center}
+    \renewcommand{\arraystretch}{1.75}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Conversión entre escalas (columna $\to$ fila)}\\
+        \hline
+        Conversión 
+            & Celsius ($\degree$)
+            & Farenheit ($\degree[F]$)
+            & Kelvin ($K$)\\
+        \hline
+        Celsius ($\degree$)
+            & $\degree=\degree$
+            & $\degree = \dfrac{100}{180}(\degree[F]-32)$
+            & $\degree = (K) - 273.15$\\
+        \hline
+        Farenheit ($\degree[F]$)
+            & $\degree[F] = \dfrac{180}{100}\degree + 32$
+            & $\degree[F] = \degree[F]$
+            & $\degree[F] = \dfrac{180}{100}(K)-459.67$\\
+        \hline
+        Kelvin ($K$)
+            & $(K) = \degree + 273.15$
+            & $(K) = \dfrac{100}{180}(\degree[F] + 459.67)$
+            & $(K) = (K)$\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\section{Ejemplo Numérico}
+
+Pasar a las otras dos escalas las siguientes temperaturas:
+$3\degree\,,\,14\degree\,,\,15\degree\,,\,92\degree\,,\,65\degree$
+
+\begin{center}
+    \begin{tabular}{c|c}
+        Farenheit           & Kelvin\\
+        \hline
+        $37.4\degree[F]$    & $276.15$\\
+        $57.2\degree[F]$    & $287.15$\\
+        $59\degree[F]$      & $288.15$\\
+        $197.6\degree[F]$   & $365.15$\\
+        $149\degree[F]$     & $338.15$
+    \end{tabular}
+\end{center}
