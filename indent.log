@@ -1,10 +1,12 @@
 INFO:  latexindent.pl version 3.23.4, 2023-11-19, a script to indent .tex files
        latexindent.pl lives here: C:/Users/usuario/AppData/Local/Programs/MiKTeX/scripts/latexindent/
-       Wed Nov 22 15:10:01 2023
-       Filename: c:\Users\usuario\OneDrive\Documentos\U\FCOP\TiposEnergia\IntercEner.tex
+       Wed Nov 22 15:06:31 2023
+       Filename: c:/Users/usuario/OneDrive/Documentos/U/FCOP/TiposEnergia/__latexindent_temp_Manifestaciones.tex
 INFO:  Processing switches:
-INFO:  Directory for backup files and indent.log:
-       c:\Users\usuario\OneDrive\Documentos\U\FCOP\TiposEnergia
+       -y|--yaml: YAML settings specified via command line
+       -c|--cruft: cruft directory
+INFO:  Directory for backup files and c:/Users/usuario/OneDrive/Documentos/U/FCOP//indent.log:
+       c:/Users/usuario/OneDrive/Documentos/U/FCOP/
 INFO:  Perl modules are being loaded from the following directories:
        C:/Strawberry/perl/lib/FindBin.pm
        C:/Strawberry/perl/vendor/lib/YAML/Tiny.pm
@@ -20,6 +22,10 @@ INFO:  YAML reading settings
        Home directory is C:\Users\usuario
        latexindent.pl didn't find indentconfig.yaml or .indentconfig.yaml
        see all possible locations: https://latexindentpl.readthedocs.io/en/latest/sec-appendices.html#indentconfig-options)
+INFO:  YAML settings read: -y switch
+       YAML setting: defaultIndent:'    '
+       single-quoted string found in -y switch: '    ', substitute to     
+       Updating mainSettings with defaultIndent:     
 INFO:  Phase 1: searching for objects
 INFO:  Phase 2: finding surrounding indentation
 INFO:  Phase 3: indenting objects

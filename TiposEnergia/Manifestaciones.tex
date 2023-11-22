@@ -4,30 +4,38 @@ La energía se manifiesta de tres maneras en un sistema:
 \begin{enumerate}
     \item \textcolor{amarillito}{Energía cinética de sus partes}
     \item \textcolor{azulito}{Energía potencial entre sus partes}
-    \item Energía potencial dentro de sus partes
+    \item \textcolor{azulito}{Energía potencial dentro de sus partes}
 \end{enumerate}
 
 \begin{center}
-    \begin{tikzpicture}
-        % ~~~~ Partes ~~~~ %
-        \draw (0,0) circle (4);
-        \draw (-2.5,1) circle (0.5);
-        \draw (-1, 2.8) circle (0.5);
-        \draw (1.5,2.5) circle (0.5);
-        \draw (1,-1.5) circle (1.75);
-        \draw (0.3, -2.5) circle (0.3);
-        \draw (2, -0.8) circle (0.3);
+	\begin{tikzpicture}
+		% ~~~~ Partes ~~~~ %
+		\draw (0,0) circle (4);
+		\draw (-2.5,1) circle (0.5);
+		\draw (-1, 2.8) circle (0.5);
+		\draw (1.5,2.5) circle (0.5);
+		\draw (1,-1.5) circle (1.75);
+		\draw (0.3, -2.5) circle (0.3);
+		\draw (2, -0.8) circle (0.3);
 
-        % ~~~~ Flechas ~~~~ %
-        \draw[ ->,amarillito ] (-2.85355339,0.6464466) -- (-3.5,0)
-            node [midway, yshift=-4,xshift=8] {$v_1$};
-        \draw[ ->, amarillito ] (-1.25,2.366987) -- (-1.75,1.50096189)
-            node [midway, yshift=0,xshift=8] {$v_2$};
-        \draw[ ->, amarillito ] (1.85355339,2.14655661) -- (3,1)
-            node [midway, yshift=-2,xshift=-8] {$v_3$};
+		% ~~~~ Flechas ~~~~ %
+		\draw[ -stealth,amarillito ] (-2.85355339,0.6464466) -- (-3.5,0)
+		node [midway, yshift=-4,xshift=8] {$v_1$};
+		\draw[ -stealth, amarillito ] (-1.25,2.366987) -- (-1.75,1.50096189)
+		node [midway, yshift=0,xshift=8] {$v_2$};
+		\draw[ -stealth, amarillito ] (1.85355339,2.14655661) -- (3,1)
+		node [midway, yshift=-2,xshift=-8] {$v_3$};
 
-            %TODO dibujar el resto de flechas
-    \end{tikzpicture}
+        \draw[stealth-stealth, azulito] (0.512132034,-2.28786797) -- (1.78786797,-1.01213203)
+            node[midway,yshift=-4,xshift=4] {$F$};
+        \draw[stealth-stealth,azulito] 
+        ({0.5*cos(deg(0.3*pi))-2.5},{0.5*sin(deg(0.3*pi))+1}) 
+            -- ({0.5*cos(deg(1.2*pi))-1},{0.5*sin(deg(1.2*pi))+2.8})
+            node [midway,xshift=-3,yshift=3] {$F$};
+        \draw[stealth-stealth, azulito] ({0.5*cos(deg(0*pi))-1},{0.5*sin(deg(0*pi))+2.8})
+            -- ({0.5*cos(deg(pi))+1.5},{0.5*sin(deg(pi))+2.5})
+            node [midway, above] {$F$};
+	\end{tikzpicture}
 \end{center}
 
 Entre dos sistemas termodinámicos, a diferente temperatura, los cuales
@@ -37,17 +45,17 @@ cinética de sus partes, mientras que el sistema receptor la absorbe a
 modo de energía cinética o potencial (cualquiera de las dos potenciales).
 
 \begin{center}
-    \begin{tikzpicture}
-        % ~~~~ Sistemas ~~~~ %
-        \draw (0,0) circle (1)
-            node {$A\,,\,T_A$};
-        \draw (4,0) circle (1)
-            node {$B\,,\,T_B$};
-        % ~~~~ Rayos/Rep.Energia ~~~~ %
-        \draw[amarillito, ->] (1, 0.5) -- (2, 0.6) -- (1.8, 0.4) -- (3, 0.5)
-            node[midway,xshift=-12.5, yshift=10] {Energía};
-        \draw[amarillito, ->] (2.9,-0.1) -- (1.8,-0.2) -- (2,0) -- (1.1,-0.1);
-    \end{tikzpicture}
+	\begin{tikzpicture}
+		% ~~~~ Sistemas ~~~~ %
+		\draw (0,0) circle (1)
+		node {$A\,,\,T_A$};
+		\draw (4,0) circle (1)
+		node {$B\,,\,T_B$};
+		% ~~~~ Rayos/Rep.Energia ~~~~ %
+		\draw[amarillito, -stealth] (1, 0.5) -- (2, 0.6) -- (1.8, 0.4) -- (3, 0.5)
+		node[midway,xshift=-12.5, yshift=10] {Energía};
+		\draw[amarillito, -stealth] (2.9,-0.1) -- (1.8,-0.2) -- (2,0) -- (1.1,-0.1);
+	\end{tikzpicture}
 \end{center}
 
 Si la temperatura del sistema receptor no es cercana a las temperaturas
@@ -59,11 +67,11 @@ Sean $T$ la temperatura del sistema receptor como función del tiempo,
 $T_0$ la temperatura inicial de este, $m$ su masa y $c$ el calor
 específico de la sustancia. Entonces:
 \[
-    \begin{derivation}
+	\begin{derivation}
             \res{ Q = m\,c\,(T-T_0)}\\
-        \equiv\\
-            \res{ \odv{Q}{t} = m\,c }
-    \end{derivation}
+		\equiv\\
+		    \res{ \odv{Q}{t} = m\,c }
+	\end{derivation}
 \]
 
 El calor específio, es una constante que indica la cantidad de energía
