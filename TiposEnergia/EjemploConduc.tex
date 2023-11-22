@@ -1,0 +1,59 @@
+\subsection{Ejemplo Numéríco: Conductividad}
+
+Una ventana de espesor $L=\qty{2}{\mm}$, con sección transversal
+$A_C = \qty{2e6}{\mm^2}$, conductividad térmica
+$k = \qty{0.8}{\watt\per{\m\kelvin}}$. Sometida a una temperatura
+constante por un lado $T_A = \qty{20}{\degreeCelsius}$ y por el otro a
+una temperatura $T_B=\qty{15}{\degreeCelsius}$. Hallar $T$ en
+$x=\qty{1}{\mm}$. Bajo estas condiciones, se tiene que el término
+$\ds\odv{T}{x}$ es constante, pues de no ser así, se podría pensar en cada
+sección de la ventana como un subsistema, el cual estaría cambiando de
+temperatura, lo que, por segunda ley de la termidinámica, entraría en
+contradicción con la suposición de que $T_A$ y $T_B$ permanecen
+constantes.
+
+Así, se tiene entonces que la temperatura en función de la distancia se
+comporta de manera lineal. Como se conocen las temperaturas de los
+extemos en contacto con ambas temperaturas, se pueden usar para
+determinar este comportamiento:
+\[
+    \begin{derivation}
+            \res{ \odv{T}{x} = \alpha }\\
+        \equiv\\
+            \res{ \odv{T}{x} = \frac{\Delta T}{\Delta x} }\\
+        \To\\
+            \res{ \odv{T}{x} = \frac{T_A - T_B}{-L} }\\
+        \equiv\\
+            \res{ \odv{T}{x} = -\qty{2.5}{\degreeCelsius\per\mm} }
+    \end{derivation}
+\]
+
+Por la misma razón, se debe mantener la igualdad cuando se toma, en vez
+de $(L,T_B)$ para hallar la razón, $(x,T(x))$, en especial, para el $x$
+de interés:
+\[
+    \begin{derivation}
+            \res{ -\qty{2.5}{\degreeCelsius\per\mm} 
+            = \frac{\qty{20}{\degreeCelsius} - T(\qty{2}{\mm})}{-\qty{2}{\mm}} }\\
+        \equiv\\
+            \res{ T(\qty{2}{\mm}) = \qty{15}{\degreeCelsius} }
+    \end{derivation}
+\]
+
+Por otra parte, como se tienen los valores de $k$, $A_C$ y 
+$\ds\odv{T}{x}$, entonces
+\[
+    \begin{derivation}
+            \res{ \odv{Q}{t} = k\,A_C\,\odv{T}{x} }\\
+        \equiv\\
+            \res{ \odv{Q}{t} = -\qty{4e3}{\watt} }
+    \end{derivation}
+\]
+
+Volviendo a un caso general, la ecuación bajo la condición de que las
+temperaturas de los extremos permanece constante se puede escribir como
+\[\odv{Q}{t} = A_C\,\frac{T_A - T_B}{L/k}\]
+Donde $\dfrac{L}{k}$ se conoce como la resistencia térmica ($R$). Esta
+resistencia, al depender de $k$ y $L$, caracterizan una lámina de un
+material. En un sistema donde hay múltiples lámines en serie, la
+resistencia térmica total es la suma de las resistencias de sus láminas.

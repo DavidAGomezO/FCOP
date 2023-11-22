@@ -1,0 +1,15 @@
+\subsection{Ejemplo Numérico: Radiación}
+
+Considerando una sartén de aluminio a \qty{373.15}{\kelvin} en un entorno a
+temperatura ambiente de \qty{288.15}{\kelvin}. Si el área superficial
+de la sartén es de \qty{100}{\cm^2}. La potencia que le entrega la
+sartén al entorno es:
+\[
+  \begin{derivation}
+      \res{ \odv{Q}{t} = \upsigma\,\upvarepsilon\,A_S\,(T_s^4 - T_a^4) }\\
+    \equiv\\
+      \res{ \odv{Q}{t} = (\num{5.67e-8})(0.03)(100)(373.15^4 - 288.15^4) }\\
+    \equiv\\
+      \res{ \odv{Q}{t} = \qty{2.125}{\watt} }
+  \end{derivation}
+\]
