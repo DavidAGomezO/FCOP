@@ -1,0 +1,73 @@
+\section{El Calor Específico Depende del Proceso y el Valor de $\upgamma$}
+
+Considerando un mismo gas, y dos procesos diferentes para el mismo, uno
+isobárico y otro isomérico. Tomando que los cambios de temperatura sean
+los mismos ($T_1$ y $T_0$), que el proceso isométrico mantiene un
+volumen $V_0$, con presiones $P_0$ a $P_f$ y el proceso isométrico
+se mantiene en la presión $P_f$ con volumenes $V_f$ a $V_0$. Entonces
+se tiene que:
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      xmin=-0.5,
+      xmax=3,
+      ymin=-0.5,
+      ymax=3,
+      xlabel = $V$,
+      ylabel = $P$,
+      axis lines=center,
+      xtick={0},
+      ytick={0},
+    ]
+
+    \addplot[
+      domain=0.095:0.5,
+      samples=600
+    ]{
+      0.25/x
+    };
+
+    \addplot[
+      domain=0.4:2.5,
+      samples=300
+    ]{
+      1.25/x
+    };
+
+    \draw[azulito] (0.5,0.5) -- (0.5,2.5);
+    \draw[verdecito] (0.5,0.5) -- (2.5, 0.5);
+
+    \draw[densely dashed] (0.5,0.5) -- (-0.1,0.5)
+      node[left] {$P_f$};
+    \draw[densely dashed] (0.5,2.5) -- (-0.1,2.5)
+      node[left] {$P_0$};
+    \draw[densely dashed] (0.5,0.5) -- (0.5,-0.1)
+      node[below] {$V_0$};
+    \draw[densely dashed] (2.5,0.5) -- (2.5,-0.1)
+      node[below] {$V_f$};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+  \item En el proceso isométrico
+        \[\Updelta U_V = n\,C_V\,(T_1 - T_0)\]
+  \item En el proceso isobárico
+        \[\Updelta U_P = n\,C_P\,(T_1 - T_0) - P_f(V_0 - V_f)\]
+        \[P_f\,(V_0 - V_1) = n\,R\,(T_1 - T_0)\]
+\end{enumerate}
+
+Como la energía está en función de la temperatura, ambos procesos
+tienen el mismo cambio de temperatura y son el mismo gas, se tiene que:
+\[
+  \begin{derivation}
+      \res{ \Updelta U_V = \Updelta U_P }\\
+    \equiv\\
+      \res{ n\,C_V\,(T_1 - T_0) = n\,C_P\,(T_1 - T_0) - P_f(V_0 - V_f) }\\
+    \equiv\\
+      \res{ n\,C_V\,(T_1 - T_0) = n\,C_P\,(T_1 - T_0) - n\,R\,(T_1 - T_0) }\\
+    \equiv\\
+      \res{ C_P - C_V = R }
+  \end{derivation}
+\]

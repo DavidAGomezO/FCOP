@@ -1,0 +1,56 @@
+\section{Gases Ideales}
+
+Los gases ideales son un sistema termodinámico que se compone de varias
+partículas. Se caracteriza por una temperatura ($T$) un volumen ($V$),
+una cantidad de masa, medida en moles $n$ y una presión ejercida al
+entorno.
+
+\begin{center}
+  \begin{tikzpicture}
+    % ~~~~ Figuras ~~~~ %
+    \draw[domain=0:360, samples=500] plot ({6*cos(\x)},{4.5*sin(\x)});
+    \draw[amarillito] (0,0) circle (3);
+
+    % ~~~~ Variables ~~~~ %
+    \node at (0,2) {Temperatura $T$};
+    \node at (0,-1) {Volumen $V$};
+    \node at (0,0) {\textcolor{amarillito}{Gas Ideal}};
+    \node at (0,-2) {Moles $n$};
+
+    % ~~~~ Flechas ~~~~ %
+    \draw[-stealth, amarillito] ({3*cos(deg(-0.25*pi))},{3*sin(deg(-0.25*pi))})
+      -- (3,{tan(deg(-0.25*pi))*(3-3*cos(deg(-0.25*pi))) + 3*sin(deg(-0.25*pi))})
+      node[midway, xshift=32] {Presión, $P$};
+  \end{tikzpicture}
+\end{center}
+
+La ecuación de gases ideales, obtenida de forma experimental, relaciona
+estas variables de la siguiente manera:
+\[P\,V = n\,R\,T\]
+Donde $R$ es una constante que depende de las unidades empleadas en las
+demás variables. Su valor bajo las unidades del sistema internacional es:
+\[R = \qty{8.314}{\joule\per{\mol \kelvin}}\]
+
+\subsection{Características de los Gases Ideales}
+\begin{enumerate}
+  \item Las fuerzas entre sus partes (átomos, moléculas) son nulas.
+  \item La única interacción entre sus partes se da cuando colisionan.
+  \item Las colisiones entre partículas no afectan la energía potencial
+        dentro de estas.
+  \item Los intercambios de energía con el entorno solo se dan en forma
+        de energía cinética de las partículas del gas, por lo que estos
+        intercambios solo afectan su temperatura. De esto se deduce que
+        la energía de un gas ideal se puede expresar como función de su
+        temperatura.
+\end{enumerate}
+
+Con el desarrollo de la física estadística, se encontró otra expresión
+para estos gases, donde se toma ahora el número de partículas ($N$) que
+componen al gas, en lugar del número de moles; y la constante de
+Boltzmann ($k_B = \qty{1.38e-23}{\joule\per\kelvin}$), en lugar de la
+constante $R$:
+\[P\,V = N\,k_B\,T\]
+
+Igualando ambas ecuaciones se puede concluir que $N\,k_B = n\,R$. De
+este resultado se puede obtener la constante de Avogadro fácilmente al
+tomar $n=1$.

@@ -1,0 +1,236 @@
+\section[Algunos Procesos Ideales como referencia a Procesos Reales]{
+Algunos Procesos Ideales\\
+Como referencia a Procesos Reales}
+
+Todos los procesos que se van a mostrar, serán de gases ideales, por lo
+que las ecuaciones mostradas anteriormente aplican en cada uno de estos.
+A su vez, se tomará que no aumenta la cantidad de partículas. Esto es,
+$n$ y $N$ son constantes en cada uno de los procesos.
+
+\begin{enumerate}
+  \item Proceso Isotérmico:
+        En este proceso, la temperatura permanece constante, y se le
+        dará el nombre de $T_0$. Así, $P\,V = n\,R\,T_0$. Lo que indíca
+        que $P\,V$ debe ser constante. En otras palabras, $P$ y $V$
+        mantienen una relación inversa bajo la condición de que la
+        temperatura permanezca constante.
+
+        \begin{center}
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-0.5,
+              xmax=3,
+              ymin=-0.5,
+              ymax=3,
+              xlabel = $V$,
+              ylabel = $P$,
+              axis lines=center,
+              xtick={0},
+              ytick={0},
+            ]
+
+            \addplot[
+              domain=0.4:2.5,
+              samples=200,
+              color=azulito
+            ]{
+              1/x
+            };
+            \draw[densely dashed] (0.4,2.5) -- (0.4,-0.1)
+              node[below] {$V_0$} ;
+            \draw[densely dashed] (2.5,0.4) -- (2.5,-0.1)
+              node[below] {$V_f$};
+            \draw[densely dashed] (2.5,0.4) -- (-0.1,0.4)
+              node[left] {$P_f$};
+            \draw[densely dashed] (0.4,2.5) -- (-0.1,2.5)
+              node[left] {$P_0$};
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+
+        Como se tiene esta relación inversa de proporcionalidad,
+        la ecuación que se deduce es:
+        \[P_0\,V_0 = P_f\,V_F\]
+
+        Pasando ahora a las transferencias de energía que se deben
+        presentar en este tipo de procesos.
+        \[
+          \begin{derivation}
+              \res{ \Updelta U = Q + T_r }\\
+            \why{Como la energía varía con la temperatura, el cambio es nulo}\\
+              \res{ Q = -T_r }\\
+            \why{ Tomando el proceso de $V_0$ a $V_f$, el gas pierde energía }\\
+              \res{ Q = -\Int{V_0,V_f}P\,\diff{V} }\\
+            \why{ Tomando $\upalpha$ como la constante de proporcionalidad }\\
+              \res{ Q = -\Int{V_0,V_f} \frac{\upalpha}{V}\,\diff{V} }\\
+            \equiv\\
+              \res{ Q = \upalpha\,\ln\left(\frac{V_0}{V_f}\right) }
+          \end{derivation}
+        \]
+        Lo que dice este resultado es que, para poder mantener la
+        temperatura del gas constante, se debe aplicar calor sobre este,
+        y dicho calor debe ser igual al trabajo realizado por el gas
+        sobre el entorno.
+  \item Proceso Isomérico:
+        En este proceso, el volumen permanece constante y se le dará el
+        nombre de $V_0$. Así $P\,V_0 = n\,R\,T$. Lo que indica que $P$
+        mantiene una proporción directa con $T$.
+        
+        \begin{center}
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-0.5,
+              xmax=1,
+              ymin=-0.5,
+              ymax=3,
+              xlabel = $V$,
+              ylabel = $P$,
+              axis lines=center,
+              xtick={0},
+              ytick={0},
+            ]
+            \draw[densely dashed] (0.4,0.4) -- (0.4,-0.1)
+              node[below] {$V_0$};
+            \draw[densely dashed] (0.4,0.4) -- (-0.1,0.4)
+              node[left] {$P_f$};
+            \draw[densely dashed] (0.4,2.5) -- (-0.1,2.5)
+              node[left] {$P_0$};
+            \draw[azulito] (0.4,2.5) -- (0.4,0.4);
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+
+        Por esta proporcionalidad directa, la ecuación que se deduce es:
+        \[\frac{T_f}{T_0} = \frac{P_f}{P_0}\]
+
+        Pasando ahora a las transferencias de energía que se deben
+        presentar en este tipo de procesos.
+        \[
+          \begin{derivation}
+              \res{ \Updelta U = Q + T_r }\\
+            \why{Como el volumen no varía, el trabajo es nulo}\\
+              \res{ \Updelta U = Q }\\
+            \why{ $Q$ se puede expresar en función de masa y calor específico}\\
+              \res{ \Updelta = n\,C_V\,(T_f - T_0) }
+          \end{derivation}
+        \]
+
+        Cabe resaltar que el calor específico en los gases ideales,
+        depende del proceso, por lo que se los nombrará con un
+        subíndice relacionado a la variable que caracterice dicho
+        proceso.
+  \item Proceso Isobárico:
+        En este proceso la presión se mantiene constante, y se le dará
+        el nombre de $P_0$. Así $P_0\,V = n\,R\,T$. Lo que indíca que
+        $V$ y $T$ mantienen una relación de proporción directa.
+        \begin{center}
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-0.5,
+              xmax=3,
+              ymin=-0.5,
+              ymax=3,
+              xlabel = $V$,
+              ylabel = $P$,
+              axis lines=center,
+              xtick={0},
+              ytick={0},
+            ]
+
+
+            \draw[densely dashed] (0.4,2.5) -- (0.4,-0.1)
+              node[below] {$V_0$} ;
+            \draw[densely dashed] (2.5,2.5) -- (2.5,-0.1)
+              node[below] {$V_f$};
+            \draw[densely dashed] (0.4,2.5) -- (-0.1,2.5)
+              node[left] {$P_0$};
+            \draw[azulito] (0.4,2.5) -- (2.5,2.5);
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+
+        Pasando ahora a las transferencias de energía que se deben
+        presentar en este tipo de procesos.
+        \[
+          \begin{derivation}
+              \res{ \Updelta U = Q + T_r }\\
+            \equiv\\
+              \res{ \Updelta U = n\,C_p\,(T_f - T_0) - \Int{V_0,V_f}P\,\diff{V} }\\
+            \why{ La presión es constante }\\
+              \res{ \Updelta U = n\,C_p\,(T_f - T_0) - P_0\,(V_f - V_0) }
+          \end{derivation}
+        \]
+  \item Proceso Adiabático:
+        En estos procesos, no hay transferencias de energía tipo calor,
+        lo que resulta en que la relación entre $P$ y $V$ sea inversa
+        bajo un exponente. Es decir, existen $\upgamma$ y $\upalpha$
+        para los cuales $P\,V^\upgamma = \upalpha$. Específicamente
+        \[\upgamma = \frac{C_P}{C_V}\]
+        y se conoce como constante adiabática.
+        
+        La gráfica en azul es la correspondiente a este proceso, la
+        verde es la del proceso isotérmico.
+
+        \begin{center}
+          \begin{tikzpicture}
+            \begin{axis}[
+              xmin=-0.5,
+              xmax=4,
+              ymin=-0.2,
+              ymax=1.2,
+              xlabel = $V$,
+              ylabel = $P$,
+              axis lines=center,
+              xtick={0},
+              ytick={0},
+            ]
+
+            \addplot[
+              domain=1:3.1,
+              samples=200,
+              opacity = 0.5,
+              color=verdecito
+            ]{
+              1/x
+            };
+            \addplot[
+              domain=1:3.1,
+              samples=300,
+              azulito
+            ]{
+              1/(x^2)
+            };
+            \draw[densely dashed] (1,1) -- (1,-0.1)
+              node[below] {$V_0$} ;
+            \draw[densely dashed] (3.1,{1/3.1^2}) -- (3.1,-0.1)
+              node[below] {$V_f$};
+            \draw[densely dashed] (3.1,{1/3.1^2}) -- (-0.1,{1/3.1^2})
+              node[left] {$P_f$};
+            \draw[densely dashed] (1,1) -- (-0.1,1)
+              node[left] {$P_0$};
+            \end{axis}
+          \end{tikzpicture}
+        \end{center}
+
+        Bajo esta relación entre $P$ y $V$, se deduce la siguiente ecuación:
+
+        \[\frac{P_0}{P_f} = \left(\frac{V_f}{V_0}\right)^\upgamma\]
+
+        Pasando ahora a las transferencias de energía que se deben
+        presentar en este tipo de procesos.
+
+        \[
+          \begin{derivation}
+              \res{ \Updelta U = Q + T_r }\\
+            \why{ $Q=0$ }\\
+              \res{ \Updelta U = T_r }\\
+            \equiv\\
+              \res{ \Updelta U = \Int{V_0,V_f}P\,\diff{V} }\\
+            \equiv\\
+              \res{ \Updelta U = \Int{V_0,V_f}\frac{\upalpha}{V^\upgamma}\,\diff{V} }\\
+            \why{$\upgamma \not= 1$}\\
+              \res{ \Updelta U = 
+                \frac{\upalpha}{1 - \upgamma}\left(V_f^{1-\upgamma} - V_0^{1-\upgamma}\right) }
+          \end{derivation}
+        \]
+\end{enumerate}
