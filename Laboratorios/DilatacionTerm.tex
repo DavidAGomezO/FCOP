@@ -16,13 +16,15 @@
 \pgfplotsset{compat = newest}
 \usetikzlibrary{angles, quotes, patterns}
 \usepackage{marginnote}
+\usepackage{upgreek}
+\usepackage{pgfplotstable}
 
 \pagestyle{fancy}
 \fancyhf{}
 \setlength{\headheight}{70.38103pt}
 
 % ~~~~~~ Autor/es ~~~~~~ %
-\rhead{\textit{David G.}}
+\rhead{\textit{David G., Laura R. Luisa R., María V.}}
 % ~~~~~~ Esquina ~~~~~~ %
 
 \lhead{\includegraphics[width = 4cm]{\logo}}
@@ -41,7 +43,7 @@
 
 % ~~~~~~ Autor/es y Titulo ~~~~~~ %
 \newcommand{\titlename}{Dilatación Térmica}
-\renewcommand{\author}{{David Gómez}}
+\renewcommand{\author}{{David Gómez, Laura Rincón, Luisa Rodríguez, María Vivas}}
 % ~~~~~~ Autor/es y Titulo ~~~~~~ %
 
 \definecolor{rojoEci}{RGB}{225, 70, 49}
@@ -82,5 +84,8 @@
 \clearpage
 \tableofcontents
 
+\include{DilatacionTerm/Teoria}
+
+\include{DilatacionTerm/Datos}
 
 \end{document}
