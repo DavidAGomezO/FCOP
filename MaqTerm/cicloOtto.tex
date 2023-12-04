@@ -1,0 +1,178 @@
+\section{El Ciclo Otto}
+
+Un ejemplo de una máquina térmica es un motor de combustión, en especial
+el motor de ciclo Otto. Este ciclo es bien conocido por ser el usado
+en la mayoría de los motores de los vehículos actualmente.
+
+Tomando $V_1$ como el volumen de la cámara cuando el pistón está en su
+punto más bajo, $V_2$ el volumen de la cámara cuando el pistón está en
+su punto más alto, $P_1$ la presión del ambiente y $P_2$ la presión
+en la cámara cuando el pistón comprime por completo al combustible.
+
+\begin{enumerate}
+  \item En el momento en que la válvula de admisión se abre, permitiendo la
+        de combustible, la presión es la misma del ambiente ($P_1$), y el
+        volumen de la cámara pasa de $V_2$ a $V_1$.
+
+  \item Una vez se cierra la válvula de admisión, el pistón empieza a subir,
+        reduciendo el volumen en la cámara. En este momento el combustible
+        se empieza a comprimir. Esto se puede aproximar a un proceso
+        adiabático, pues se puede considerar que no hay transferencias
+        de energía tipo calor, introduciendo una presión distinta a $1$ o $2$
+        a volumen $V_2$.
+
+  \item Una vez comprimido, se genera una chispa, lo que genera a su vez
+        una reacción con el combustible y una subida de presión súbita.
+        Debido a la rapidez de la reacción, esto se puede aproximar a un
+        proceso isométrico, con volumen $V_2$.
+
+  \item La reacción hace que el pistón baje. Nuevamente, se considera que no
+        hay transferencias de calor durante el movimiento del pistón, por lo
+        que se aproxima a otro proceso adiabático, el cual finaliza a otra
+        presión, con volumen $V_1$.
+
+  \item La válvula de escape se abre, generando una caída en la presión.
+        Esto se aproxima a un proceso isométrico, a volumen $V_1$.
+
+  \item Por último, el pistón sube, liberando el gas a presión ambiente.
+        Esto es un proceso isobárico a presión $P_1$, de $V_1$ a $V_2$.
+\end{enumerate}
+
+Considerando $Q_B$ el calor absorbido por la reacción de la chispa, y
+$Q_A$, el calor liberado tras el espape.
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=center,
+      xmin=-0.5,
+      xmax=3,
+      ymin=-1,
+      ymax=7,
+      xlabel=$V$,
+      ylabel=$P$,
+      xtick=\empty,
+      ytick=\empty,
+    ]
+    % ~~~~ Curvas isotérmicas ~~~~~%
+    \addplot[
+      domain=0.8:2.5,
+      samples=300,
+      color=azulito,
+      opacity=0.5
+    ]{
+      6/x
+    } node[pos=0.7,yshift=12] {$T_A$};
+
+    \addplot[
+      domain=0.8:2.5,
+      samples=300,
+      color=azulito,
+      opacity=0.5
+    ]{
+      1/x
+    } node[pos=-0.15,yshift=-4] {$T_B$};
+    % ~~~~ Procesos adiabáticos ~~~~ %
+    \addplot[
+      domain=2:1,
+      samples=200,
+      color=naranjita,
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.7 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ]{
+      2/x^2
+    } node[pos=0.6,yshift=5] {\resizebox{1.25mm}{1.25mm}{2}};
+
+    \addplot[
+      domain=1:2,
+      samples=500,
+      color=naranjita,
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.7 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ]{
+      6/x^2
+    } node[pos=0.7,yshift=6] {\resizebox{1.25mm}{1.25mm}{4}};
+
+    % ~~~~ Procesos isométricos ~~~~ %
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.5 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ] (1,{2/1^2}) -- (1,{6/1^2})
+      node[pos=0.5,xshift=-6] {\resizebox{1.25mm}{1.25mm}{3}};
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.5 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ] (2,{6/2^2}) -- (2,{2/2^2})
+      node[pos=0.5,xshift=6] {\resizebox{1.25mm}{1.25mm}{5}};
+
+    % ~~~~ Procesos isobáricos ~~~~ %
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.3 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ] (1,{2/2^2}) -- (2,{2/2^2})
+      node[pos=0.3, yshift=4.5] {\resizebox{1.25mm}{1.25mm}{1}};
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.3 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ] (2,{2/2^2 - 0.15}) -- (1,{2/2^2 - 0.15})
+      node[pos=0.2, yshift=-4.5] {\resizebox{1.25mm}{1.25mm}{6}};
+    % ~~~~ Valores en ejes ~~~~ %
+    \draw (0,{2/2^2}) -- (-0.2,{2/2^2}) node[left] {$P_1$};
+    \draw (0,{6/1^2}) -- (-0.2,{6/1^2}) node[left] {$P_2$};
+    \draw (1,0) -- (1,-0.2) node[below] {$V_2$};
+    \draw (2,0) -- (2,-0.2) node[below] {$V_1$};
+
+    % ~~~~ Temperaturas auxiliares ~~~~ %
+    \draw[color=amarillito, ->] ({1-0.05},{2/1^2}) to[bend left] (0.7,3)
+      node[above] {$T_A'$};
+    \draw[color=amarillito, ->] ({2},{6/2^2+0.05}) to[bend left] (2.3,2.1)
+      node[right] {$T_B'$};
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+La eficiencia entonces es:
+
+\[e_{\text{Otto}} = 1 - \frac{Q_B}{Q_A}\]
+
+\begin{itemize}
+  \item De (II) se tiene que: $P_1\,V_1^\upgamma = \upalpha_1$, con la ley de
+  los gases ideales, se puede deducir que $T\,V^\upgamma$ es constante en
+  estos procesos. De ahí, $T_B' = T_B \left(\frac{V_1}{V_2}\right)^{\upgamma-1}$.
+
+  \item De forma similar, en (IV), se obtiene que
+  $T_A' = T_A \left(\frac{V_2}{V_1}\right)^{\upgamma-1}$.
+
+  \item De (III) se tiene que $Q_A = n\,C_V\,(T_A - T_B')$.
+  
+  \item De (V) se tiene que $Q_B = n\,C_V\,(T_A' - T_B)$.
+\end{itemize}
+
+Reemplazando $T_A'$ y $T_B'$ por lo obtenido de (II) y (IV), y computando
+el cociente de las energías de tipo calor para obtener la eficiencia,
+se obtiene que:
+
+\[e_{\text{Otto}} = 1 - \left(\frac{V_2}{V_1}\right)^{1 - \upgamma}\]
+
+Por ejemplo, un motor V12 a gasolina con \qty{5204}{\cm^3}. Cada pistón entonces
+tendrá \qty{433.667}{\cm^3}. Si su relación de compresión ($V_1/V_2$)
+es de $9.3$, entonces, su eficiencia será $1 - 9.3^{1 - 1.4} = 0.59$ que
+corresponde al $59\%$

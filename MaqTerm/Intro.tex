@@ -1,0 +1,52 @@
+\section{Introducción}
+
+Recordando lo que es una máquina térmica:\\
+Una máquina térmica es un sistema el cual recibe energía de tipo
+calor desde un reservorio a una temperatura $T_A$, generar con esta
+trabajo mecánico útil, y entrega energía de tipo calor a otro reservorio
+a temperatura $T_B$. Un reservorio es un sistema que permite el paso de
+energía de tipo calor sin alterar su temperatura.
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw[domain=0:360, samples=500] plot ({3*cos(\x)},{sin(\x)+4});
+      \node at (0,4) {$T_A$};
+    \draw[domain=0:360, samples=500] plot ({cos(\x)},{sin(\x)});
+      \node at (0,0) {Máquina};
+    \draw[domain=0:360, samples=500] plot ({3*cos(\x)},{sin(\x)-4});
+      \node at (0,-4) {$T_B$};
+
+    \draw[-stealth] ({3*cos(deg(-0.5*pi))},{sin(deg(-0.5*pi))+4}) 
+    -- (-0.2, 1.8) -- (0.2,2.2) -- ({cos(deg(0.5*pi))},{sin(deg(0.5*pi))});
+      \node at (0.6,2) {$Q_A$};
+    \draw[-stealth]  ({cos(deg(-0.5*pi))},{sin(deg(-0.5*pi))})
+    -- (-0.2, -2.2) -- (0.2,-1.8) -- ({3*cos(deg(0.5*pi))},{sin(deg(0.5*pi))-4});
+      \node at (0.6,-2) {$Q_B$};
+    \draw[-stealth] (1,0) -- (2,0) node[right] {$T_{r,u}$ Trabajo mecánico útil};
+  \end{tikzpicture}
+\end{center}
+
+Toda máquina térmica requiere de sustancia de trabajo, esta sustancia absorbe la energía
+$Q_A$ y es la que, como intermediaria, permite la generación del trabajo útil. La
+eficiencia de una máquina térmica se puede medir en razón de cuanta energía de la que le
+entra es producida como trabajo, esto es:
+\[\text{Eficiencia:} e = \frac{T_{r,u}}{Q_A}\]
+Los intercambios de energía se dan en la sustancia de trabajo, la cual siempre está operando
+en un ciclo. Esto es, en un plano presión - volúmen, se pueden trazar diferentes procesos
+del funcionamiento de la máquina, y la sustancia de trabajo va a cambiar entre una seria de
+estados, pero siempre en un ciclo. Es decir, el último estado finaliza en donde empezó el primero.
+
+Ya que la sustancia de trabajo tiene esta propiedad. Considerando todo un ciclo,
+
+\begin{longderivation}
+    \res{ \Updelta U = Q + T_r }\\
+  \why{ Se finaliza en el mismo estado en el que se inició }\\
+    \res{ Q = -T_r }
+\end{longderivation}
+
+Como $Q = Q_A - Q_B$ y $T_{r,u} = -T_r$ entonces la eficiencia se puede escribir
+como:
+\[e = 1 - \frac{Q_B}{Q_A}\]
+
+Un ejemplo de una máquina térmica es un motor de combustión, donde la sustancia de trabajo
+viene a ser la mezcla del combustible y el aire.
