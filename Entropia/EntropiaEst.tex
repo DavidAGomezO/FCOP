@@ -1,0 +1,37 @@
+\section{La Entropía como Medida del Desorden}
+
+El ejemplo típico para explicar la entropía en su interpretación
+estadística, es considerar un gas en una especie de caja, limitado a una=
+parte de esta por una barrera. Al retirar la barrera, el gas tiende
+a ocupar toda la caja, esto por simple probabilidad de la posición de todas
+las partículas. Para analizar esta situación con lo visto anteriormente,
+nos damos cuenta que el proceso descrito es isotérmico y adiabático. Es un
+proceso irreversible. Se puede, sin embargo, considerar un proceso en el que la
+barrera no se retira, sino que se desliza, hasta permitir que el gas ocupe todo
+el volumen de la caja, siendo este un proceso únicamente isotérmico, pasando
+de un volumen $V_i$ a un volumen $V_f$.
+
+Así, el cambio de la entropía será $\Updelta S = n\,R\,\ln\left(\frac{V_f}{V_i}\right)$
+
+Ahora, si consideramos el volumen de cada partícula como $V_m$, para úna partícula,
+las configuraciones posibles en un volumen $V_i$ serán $\dfrac{V_i}{V_m}$.
+Para $N$ partículas, las configuraciones posibles son $\ds\left(\frac{V_i}{V_m}\right)^N$.
+Este valor lo llamaremos $w_i$. Resulta que, en el estado inicial, la entropía
+es $S_i = k_B\,\ln(w_i)$, recordando que $k_B$ es la constante de Boltzman.
+
+Para mostrar que efectivamente esta expresión representa la entropía, se va a considerar
+lo obtenido para el cambio de la entropía.
+
+\begin{longderivation}
+    \res{ \Updelta S }\\
+  =\\
+    \res{ n\,R\,\ln\left(\frac{V_f}{V_i}\right) }\\
+  =\\
+    \res{ N\,k_B\,\ln\left(\frac{V_f}{V_i}\right) }\\
+  =\\
+    \res{ k_B\,\ln\left(\frac{V_f}{V_i}\right)^N }\\
+  =\\
+    \res{ k_B\,\ln\left(\frac{w_f}{w_i}\right) }\\
+  =\\
+    \res{ k_B\ln(w_f) - k_B\ln(w_i) }
+\end{longderivation}

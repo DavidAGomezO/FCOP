@@ -1,0 +1,198 @@
+\section{Características de la Entropía}
+
+Una de las características de la entropía, es que, en un cambio
+reverisble, La entropía del sistema no cambia de su estado
+inicial. Por otro lado, en un proceso irreversible, el cambio de la
+entropía debe ser positivo ($\Updelta S > 0$). La entropía es una
+función del estado del estado termodinámico del sistema, y no depende
+de cómo este llegó a dicho estado. No existe una expresión para
+calcular el cambio de entropía en procesos irreversibles, sin embargo,
+si se tienen procesos reversibles entre los estados del proceso
+irreversible, el cambio de entropía debe coincidir.
+
+\subsection{Cálculo de la Entropía en Procesos Reversibles}
+
+Se va a considerar un proceso reversible entre dos estados: uno
+caracterizado por presión, volumen y temperatura $P_i$, $V_i$, $T_i$.
+El otro, de igual manera, por $P_f$, $V_f$, $T_f$.
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=center,
+      xmin=-0.5,
+      xmax=3,
+      ymin=-1,
+      ymax=7,
+      xlabel=$V$,
+      ylabel=$P$,
+      xtick=\empty,
+      ytick=\empty,
+    ]
+    % ~~~~ Curvas isotérmicas ~~~~~%
+    \addplot[
+      domain=0.8:2.5,
+      samples=300,
+      color=azulito,
+    ]{
+      6/x
+    } node[pos=0.7,yshift=12] {$T_i$};
+
+    \addplot[
+      domain=0.8:2.5,
+      samples=300,
+      color=azulito,
+    ]{
+      1/x
+    } node[pos=-0.15,yshift=-4] {$T_f$};
+    % ~~~~ Procesos isométricos ~~~~ %
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.5 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                }
+    ] (1,{6/1}) -- (1,{1/1});
+    % ~~~~ Valores en ejes ~~~~ %
+    \draw (0,{2/2^2}) -- (-0.2,{2/2^2}) node[left] {$P_f$};
+    \draw (0,{6/1^2}) -- (-0.2,{6/1^2}) node[left] {$P_i$};
+    \draw (1,0) -- (1,-0.2) node[below] {$V_i$};
+    \draw (2,0) -- (2,-0.2) node[below] {$V_f$};
+
+    % ~~~~ Lineas de los valores ~~~~ %
+    \draw[dotted] (1,0) -- (1,1);
+    \draw[dotted] (2,0) -- (2,{1/2});
+    \draw[dotted] (2,{1/2}) -- (0,{1/2});
+    \draw[dotted] (2,{1/2}) -- (0,{1/2});
+    \draw[dotted] (1,{6/1}) -- (0,{6/1});
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Para lograr calcular el cambio en la entropía, consideraremos las dos
+curvas isotérmicas con temperaturas $T_i$ y $T_f$ respectivamente.
+Con estas curvas, se puede apreciar mejor que el proceso isométrico
+mostrado, varía entre las temperaturas $T_i$ y $T_f$, igual que el
+proceso reversible. Debido a esto, los cambios de energía de ambos deben
+ser iguales: $\Updelta U = \Updelta U_V$. De igual forma tenemos que
+$\Updelta U_V = n\,C_V\,\Updelta T$.
+
+Por otro lado, para nuestro proceso reversible, como pasa de un menor
+volumen a un mayor volumen, el trabajo es negativo.
+
+\[\diff{T_r} = -P\,\diff{V} = -\frac{n\,R\,T}{V}\,\diff{V}\]
+
+Por primera ley, se tiene que:
+
+\[
+  \begin{derivation}
+      \res{ \Updelta Q = \Updelta U - \Updelta T_r }\\
+    \To\\
+      \res{ \diff{Q} = n\,C_V\,\diff{T} + \frac{n\,R\,T}{V}\,\diff{V}}\\
+    \equiv\\
+      \res{ \frac{\diff{Q}}{T} = \frac{n\,C_V}{T}\,\diff{T} + \frac{n\,R}{V}\,\diff{V} }\\
+    \To\\
+      \res{ \Updelta S = n\,C_V\,\ln\left(\frac{T_f}{T_i}\right) + n\,R\,\ln\left(\frac{V_f}{V_i}\right)}
+  \end{derivation}
+\]
+
+Esta expresión aplica para cualquier proceso reversible en gases ideales. En
+los procesos adiabáticos, por ejemplo, no hace falta recurrir a esta expresión,
+pues no hay transferencias de calor ($\Updelta Q = 0$), lo que significa que
+el cambio en la entropía es nulo.
+
+\subsection{Cambio de la Entropía en Procesos Irreversibles}
+
+Se va a considerar un procesos irreversible caracterizado por las
+mismas variables de antes, pasando de $i$ a $f$.
+
+\begin{center}
+  \begin{tikzpicture}
+    \begin{axis}[
+      axis lines=center,
+      xmin=-0.5,
+      xmax=3,
+      ymin=-1,
+      ymax=7,
+      xlabel=$V$,
+      ylabel=$P$,
+      xtick=\empty,
+      ytick=\empty,
+    ]
+    % ~~~~ Procesos isométricos ~~~~ %
+    \draw[
+      postaction = {decorate},
+      decoration = {
+                    markings
+                    , mark = at position 0.5 with {\arrow{Stealth[length = 1.5mm, bend]}}
+                },
+      color=naranjita
+    ] (2,{6/1}) -- (2,{1/2})
+      node[midway, right] {2};
+    % ~~~~ Procesos isobáricos ~~~~ %
+    \draw[
+      postaction = {decorate},
+      decoration = {
+        markings,
+        mark=at position 0.5 with {\arrow{Stealth[length=1.5mm, bend]}}
+      },
+      color=azulito
+    ] (1,6) -- (2,6)
+      node[midway, above] {1};
+    % ~~~~ Valores en ejes ~~~~ %
+    \draw (0,{2/2^2}) -- (-0.2,{2/2^2}) node[left] {$P_f$};
+    \draw (0,{6/1^2}) -- (-0.2,{6/1^2}) node[left] {$P_i$};
+    \draw (1,0) -- (1,-0.2) node[below] {$V_i$};
+    \draw (2,0) -- (2,-0.2) node[below] {$V_f$};
+
+    % ~~~~ Lineas de los valores ~~~~ %
+    \draw[dotted] (1,0) -- (1,6);
+    \draw[dotted] (2,0) -- (2,{1/2});
+    \draw[dotted] (2,{1/2}) -- (0,{1/2});
+    \draw[dotted] (2,{1/2}) -- (0,{1/2});
+    \draw[dotted] (1,{6/1}) -- (0,{6/1});
+
+    \end{axis}
+  \end{tikzpicture}
+\end{center}
+
+Suponiendo que se tienen los dos procesos reversibles, que juntos
+serían un proceso reverisble entre los dos estados. Entonces,
+se puede calcular el cambio de la entropía.\\
+En el proceso isobárico, se tiene que $\diff{Q_P} = n\,C_P\,\diff{T}$\\
+En el proceso isométrico, se tiene que $\diff{Q_V} = n\,C_V\,\diff{V}$
+
+Así,
+\[
+  \begin{derivation}
+      \res{ \Updelta S }\\
+    \why[=]{ $b$ el punto donde se encuentran los dos procesos
+            reversibles}\\
+      \res{ \Int{i,b} \frac{1}{T}\,\diff{Q_P} + \Int{b,T_f} \frac{1}{T}\,\diff{Q_V} }\\
+    =\\
+      \res{ n\,C_P \Int{T_i,T_b}\frac{1}{T}\,\diff{T} +
+            n\,C_V\Int{T_b,T_f}\frac{1}{T}\,\diff{T} }\\
+    =\\
+      \res{ n\,C_P\,\ln\left(\frac{T_b}{T_i}\right) +
+            n\,C_V\,\ln\left(\frac{T_f}{T_b}\right) }
+  \end{derivation}
+\]
+
+Por ejemplo, tomando un gas monoatómico con $n=2000$, $P_i=\qty{40000}{\Pa}$,
+$V_i = \qty{60}{\m^3}$, $P_f = \qty{20000}{\Pa}$ y $V_f = \qty{100}{\m^3}$.
+
+\begin{itemize}
+  \item Por ley de gases ideales, se tiene que $\ds T_i = \frac{P_i\,V_i}{n\,R} 
+        = \qty{144.33}{\kelvin}$
+  
+  \item Como se está considerando un proceso isobárico, $\ds T_b = T_i\frac{V_f}{V_i} =
+        \qty{240.56}{\kelvin}$
+  
+  \item Por último, en el proceso isométrico, $\ds T_f = T_b\frac{P_f}{P_i} =
+        \qty{120.28}{\kelvin}$
+  
+  \item Ya con todos los datos, reemplazando en la ecuación obtenida:
+  
+        \[\ds\Updelta S = 2000\,\frac{5}{2}R\,\ln\left(\frac{240.56}{144.33}\right)
+        + 2000\,\frac{3}{2}R\,\ln\left(\frac{120.28}{240.56}\right)
+        = \qty{4322.57}{\J\per\K}\]
+\end{itemize}
